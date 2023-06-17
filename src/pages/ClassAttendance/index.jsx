@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getClass } from "../../store/classesSlice";
+import AttendanceCard from "../../components/AttendanceCard";
+import styles from "./classAttendance.module.css";
 
 function ClassAttendance() {
   const showClass = useSelector((state) => state.classes.showClass);
@@ -16,16 +18,16 @@ function ClassAttendance() {
 
   const renderAttendanceTable = () => {
     const cards = attendanceToday?.attendence_records?.map((attendance) => {
-      return <h1>Record</h1>;
+      return <AttendanceCard record={attendance} />;
     });
     if (attendanceToday?.attendence_records?.length < 1)
       return <h1>No studnets in this class</h1>;
     return cards;
   };
   return (
-    <div>
+    <div className={styles.container}>
       <h1>Take Attendances</h1>
-      <div>{renderAttendanceTable()}</div>
+      <div className={styles.contentContainer}>{renderAttendanceTable()}</div>
     </div>
   );
 }
