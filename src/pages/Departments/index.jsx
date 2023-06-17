@@ -3,9 +3,9 @@ import styles from "./departments.module.css";
 import Modal from "../../components/Modal";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import StudentCard from "../../components/studentCard";
 import { getAllDepartments } from "../../store/departmentsSlice";
 import AddDepartmentModal from "../../Modals/AddDepartmentModal";
+import DepartmentCard from "../../components/departmentCard";
 
 function Departments() {
   const [showModal, setShowModal] = useState(false);
@@ -19,7 +19,7 @@ function Departments() {
 
   const renderDepartments = () => {
     let cards = departments?.map((department) => {
-      <StudentCard student={student} />;
+      return <DepartmentCard department={department} />;
     });
     if (departments?.length > 0) return cards;
     return <h1>No departments yet</h1>;
