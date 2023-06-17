@@ -23,7 +23,7 @@ function AddStudentModal({ setShowModal }) {
       address: address,
       grade: grade,
       date_of_birth: date_of_birth,
-      class_id: classId,
+      school_class_id: classId * 1,
     };
 
     dispatch(addStudent(data));

@@ -19,7 +19,7 @@ function Students() {
 
   const renderStudents = () => {
     let cards = students?.map((student) => {
-      <StudentCard student={student} />;
+      return <StudentCard student={student} />;
     });
     if (students?.length > 0) return cards;
     return <h1>No students yet</h1>;
