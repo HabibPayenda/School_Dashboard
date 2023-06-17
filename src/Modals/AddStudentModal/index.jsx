@@ -11,6 +11,7 @@ function AddStudentModal({ setShowModal }) {
   const [address, setAddress] = useState("");
   const [grade, setGrade] = useState("");
   const [date_of_birth, setDateOfBirth] = useState("");
+  const [classId, setClassId] = useState("");
 
   const dispatch = useDispatch();
   const handleAddTeacher = () => {
@@ -22,6 +23,7 @@ function AddStudentModal({ setShowModal }) {
       address: address,
       grade: grade,
       date_of_birth: date_of_birth,
+      class_id: classId,
     };
 
     dispatch(addStudent(data));
@@ -69,14 +71,14 @@ function AddStudentModal({ setShowModal }) {
             onChange={(e) => setGrade(e.target.value)}
             className={styles.input}
             type="text"
-            placeholder="Subject"
+            placeholder="Grade"
           />
           <input
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             className={styles.input}
             type="text"
-            placeholder="Subject"
+            placeholder="Address"
           />
           <input
             value={date_of_birth}
@@ -84,6 +86,13 @@ function AddStudentModal({ setShowModal }) {
             className={styles.input}
             type="date"
             placeholder="Subject"
+          />
+          <input
+            value={classId}
+            onChange={(e) => setClassId(e.target.value)}
+            className={styles.input}
+            type="text"
+            placeholder="Class ID"
           />
         </div>
       </div>
