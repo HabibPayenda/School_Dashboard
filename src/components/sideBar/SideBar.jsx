@@ -9,7 +9,7 @@ function SideBar() {
       <div className={styles.links}>
         <NavLink
           className={({ isActive }) => (isActive ? "link active" : "link")}
-          to="/"
+          to="/dashboard"
         >
           DashBord
         </NavLink>

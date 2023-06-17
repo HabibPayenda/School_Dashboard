@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./dashBord.module.css";
 import DashBordCard from "../../components/dashbordCard/DashBordCard";
 
@@ -9,8 +8,8 @@ function DashBord() {
         <h2>School Name</h2>
       </div>
       <div className={styles.cards}>
-        <DashBordCard title="Teacher Card" url="/teacherInfo" />
-        <DashBordCard title="Student Card" url="/studentInfo" />
+        <DashBordCard title="Teacher Card" url="teacherInfo" />
+        <DashBordCard title="Student Card" url="studentInfo" />
       </div>
     </div>
   );

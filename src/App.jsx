@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import DashBord from "./pages/dashBord/DashBord";
 import Classes from "./pages/classes/Classes";
@@ -19,7 +19,8 @@ function App() {
 
         <div className="routes">
           <Routes>
-            <Route path="/" element={<DashBordSharedLayout />}>
+            <Route exact path="/" element={<Navigate to="/dashboard" />} />
+            <Route path="/dashboard" element={<DashBordSharedLayout />}>
               <Route index element={<DashBord />} />
               <Route path="teacherInfo" element={<TeacherInfo />} />
               <Route path="studentInfo" element={<StudentInfo />} />
