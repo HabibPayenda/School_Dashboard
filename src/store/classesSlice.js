@@ -62,6 +62,25 @@ export const addClass = createAsyncThunk(
     }
   }
 );
+export const takeAttendance = createAsyncThunk(
+  "classes/takeAttendance",
+  // { name, phone, email, password, subject }
+  async (id) => {
+    try {
+      const result = await SchoolApi.get(`/classes/take_attendance/${id}`, {
+        onUploadProgress: (progress) => {
+          if (progress.loaded / progress.total === 1) {
+          }
+        },
+      });
+      console.log(result.data);
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
 
 const initialState = {
   classes: [],
