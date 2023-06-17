@@ -37,7 +37,10 @@ export const getTeacher = createAsyncThunk("teacher/getTeacher", async (id) => {
 });
 export const addTeacher = createAsyncThunk(
   "teachers/addTeacher",
+  // { name, phone, email, password, subject }
   async (data) => {
+    console.log("data is ");
+    console.log(data);
     try {
       const result = await SchoolApi.post("/teachers", data, {
         onUploadProgress: (progress) => {
