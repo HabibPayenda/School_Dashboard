@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./addTeacher.module.css";
+import styles from "./addStudent.module.css";
 import { useDispatch } from "react-redux";
 import { addStudent } from "../../store/studentsSlice";
 
