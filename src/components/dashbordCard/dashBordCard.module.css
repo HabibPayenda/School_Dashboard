@@ -1,0 +1,52 @@
+.teacherCard {
+    background-color: white;
+    width: 400px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 9px rgba(0,0,0,0.2);
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.img {
+    width: 80px;
+    height: 80px;
+    background-color:#21958f;
+    border-radius: 30px;
+}
+.footer {
+    width: 400px;
+    text-align: center;
+}
+
+.btn {
+    width: 300px;
+    padding: 10px 50px;
+    border-radius: 5px;
+    background-color: white;
+    border:lightseagreen solid 2px;
+    text-decoration: none;
+    color: #006868;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: lightseagreen;
+    color: white;
+    cursor: pointer;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}

@@ -1,0 +1,71 @@
+.teachersCardContainer {
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    gap: 10px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    font-size: 14px;
+}
+
+.header {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.img {
+    width: 50px;
+    height: 50px;
+    background-color: #21958f;
+    border-radius: 50%;
+    margin-bottom: 5px;
+} 
+
+.contant {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.p {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.percentage {
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 5px 3px;
+    font-size: 15px;
+    text-align: center;
+    width: 34spx;
+}
+
+.btn {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: white;
+    border:lightseagreen solid 1px;
+    color: #006868;
+}
+
+.btn:hover {
+    background-color: lightseagreen;
+    color: white;
+    cursor: pointer;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}

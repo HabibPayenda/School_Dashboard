@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=muli&display=swap');
+
+body {
+    font-family: 'muli', sans-serif;
+    color: #006868;
+}
+
+.viewBtn {
+    color: #006868;
+}
+
+.link {
+    text-decoration: none;
+    color:#006868;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.link:hover {
+   border: 2px solid lightseagreen;
+   border-radius: 5px;
+   padding: 5px 10px;
+}
+
+.active {
+    color: lightseagreen;
+   border: 2px solid lightseagreen;
+   border-radius: 5px;
+   padding: 5px 10px;
+}

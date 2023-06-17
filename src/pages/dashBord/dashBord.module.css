@@ -1,0 +1,32 @@
+.dashBord {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #9fd4d1;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 50px 0;
+    color: white;
+}
+
+.header h2 {
+    text-shadow: 4px 4px 12px rgba(0,0,0,0.2);
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 28px;
+}
+
+.btn{
+    background-color: lightseagreen;
+    
+}

@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.app {
+    display: flex;
+}
+
+.routes {
+    background-color: #9fd4d1;
+    display: flex;
+    flex: 1;
+}
+
+.viewBtn {
+    color: #006868;
+}

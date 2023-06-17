@@ -1,0 +1,32 @@
+.sideBar {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 20px;
+   background-color: white;
+   box-shadow: 3px 3px 20px #ddd;
+}
+
+.admin {
+    margin: 40px;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    width: 150px;
+    height: 100vh;
+}
+
+.link {
+    text-decoration: none;
+    color:#006868;
+}
+
+.link:hover {
+    text-decoration: underline;
+    border: #006868 1px solid;
+}

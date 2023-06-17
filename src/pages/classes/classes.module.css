@@ -1,0 +1,11 @@
+.classes {
+    padding: 20px;
+   
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 28px;
+}
