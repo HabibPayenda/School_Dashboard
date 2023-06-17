@@ -8,6 +8,7 @@ function AddClassModal({ setShowModal }) {
   const [name, setName] = useState("");
   const [roomNumber, setRoomNumber] = useState("");
   const [departmentId, setDepartmentId] = useState("");
+  const [teacherId, setTeacherId] = useState("");
 
   const dispatch = useDispatch();
 
@@ -18,6 +19,7 @@ function AddClassModal({ setShowModal }) {
       name: name,
       room_number: roomNumber,
       department_id: departmentId,
+      teacher_id: teacherId,
     };
 
     dispatch(addClass(data));
@@ -51,6 +53,13 @@ function AddClassModal({ setShowModal }) {
             onChange={(e) => setDepartmentId(e.target.value)}
             type="text"
             placeholder="Department Id"
+          />
+          <input
+            className={styles.input}
+            value={teacherId}
+            onChange={(e) => setTeacherId(e.target.value)}
+            type="text"
+            placeholder="Teacher Id"
           />
         </div>
       </div>

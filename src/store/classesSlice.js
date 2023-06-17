@@ -38,7 +38,7 @@ export const getClass = createAsyncThunk("classes/getClass", async (id) => {
 export const addClass = createAsyncThunk(
   "classes/addClass",
   // { name, phone, email, password, subject }
-  async ({ name, department_id, room_number }) => {
+  async ({ name, department_id, room_number, teacher_id }) => {
     try {
       const result = await SchoolApi.post(
         "/classes",
@@ -46,6 +46,7 @@ export const addClass = createAsyncThunk(
           name: name,
           department_id: department_id * 1,
           room_number: room_number,
+          teacher_id: teacher_id * 1,
         },
         {
           onUploadProgress: (progress) => {

@@ -21,15 +21,15 @@ function SideBar() {
         </NavLink>
         <NavLink
           className={({ isActive }) => (isActive ? "link active" : "link")}
-          to="/classes"
-        >
-          Classes
-        </NavLink>
-        <NavLink
-          className={({ isActive }) => (isActive ? "link active" : "link")}
           to="/teachers"
         >
           Teachers
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "link active" : "link")}
+          to="/classes"
+        >
+          Classes
         </NavLink>
         <NavLink
           className={({ isActive }) => (isActive ? "link active" : "link")}
