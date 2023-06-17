@@ -19,7 +19,7 @@ function Classes() {
 
   const renderClasses = () => {
     let cards = classes?.map((singleClass) => {
-      <ClassCard singleClass={singleClass} />;
+      return <ClassCard singleClass={singleClass} />;
     });
     if (classes?.length > 0) return cards;
     return <h1>No Classes yet</h1>;

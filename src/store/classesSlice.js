@@ -38,16 +38,22 @@ export const getClass = createAsyncThunk("classes/getClass", async (id) => {
 export const addClass = createAsyncThunk(
   "classes/addClass",
   // { name, phone, email, password, subject }
-  async (data) => {
-    console.log("data is ");
-    console.log(data);
+  async ({ name, department_id, room_number }) => {
     try {
-      const result = await SchoolApi.post("/classes", data, {
-        onUploadProgress: (progress) => {
-          if (progress.loaded / progress.total === 1) {
-          }
+      const result = await SchoolApi.post(
+        "/classes",
+        {
+          name: name,
+          department_id: department_id * 1,
+          room_number: room_number,
         },
-      });
+        {
+          onUploadProgress: (progress) => {
+            if (progress.loaded / progress.total === 1) {
+            }
+          },
+        }
+      );
       return result.data;
     } catch (error) {
       console.log(error);
