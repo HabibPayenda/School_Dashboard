@@ -16,6 +16,8 @@ import TeachersSharedLayout from "./pages/layouts/TeachersSharedLayout";
 import Teachers from "./pages/Teachers";
 import StudentsSharedLayout from "./pages/layouts/StudentsSharedLayout";
 import Students from "./pages/Students";
+import DepartmentsSharedLayout from "./pages/layouts/DepartmentsSharedLayout";
+import Departments from "./pages/Departments";
 
 function App() {
   return (
@@ -31,6 +33,10 @@ function App() {
                 <Route index element={<DashBord />} />
                 <Route path="teacherInfo" element={<TeacherInfo />} />
                 <Route path="studentInfo" element={<StudentInfo />} />
+              </Route>
+
+              <Route path="/departments" element={<DepartmentsSharedLayout />}>
+                <Route index element={<Departments />} />
               </Route>
 
               <Route path="/teachers" element={<TeachersSharedLayout />}>
