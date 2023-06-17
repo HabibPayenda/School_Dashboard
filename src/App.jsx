@@ -12,6 +12,8 @@ import DashBordSharedLayout from "./pages/layouts/DashBordSharedLayout";
 import StudentInfo from "./pages/studentInfo/StudentInfo";
 import { Provider } from "react-redux";
 import store from "./store/store";
+import TeachersSharedLayout from "./pages/layouts/TeachersSharedLayout";
+import Teachers from "./pages/Teachers";
 
 function App() {
   return (
@@ -27,6 +29,10 @@ function App() {
                 <Route index element={<DashBord />} />
                 <Route path="teacherInfo" element={<TeacherInfo />} />
                 <Route path="studentInfo" element={<StudentInfo />} />
+              </Route>
+
+              <Route path="/teachers" element={<TeachersSharedLayout />}>
+                <Route index element={<Teachers />} />
               </Route>
 
               <Route path="/classes" element={<ClassesSharedLayout />}>
