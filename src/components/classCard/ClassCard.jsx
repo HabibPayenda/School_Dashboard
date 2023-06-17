@@ -1,22 +1,26 @@
-import React from 'react'
-import styles from './classCard.module.css'
-import { Link } from 'react-router-dom'
+import React from "react";
+import styles from "./classCard.module.css";
+import { Link } from "react-router-dom";
 
-
-function ClassCard() {
+function ClassCard({ singleClass }) {
   return (
     <div className={styles.classCardContainer}>
-        <div className={styles.header}>
-            <h4>Class Name</h4>
-            <span>Teacher Name</span>
-            <h5>Number of student: 20</h5>
-        </div>
-        <div className={styles.footer}>
-            <Link to='/classes/view' className={styles.viewBtn}>view</Link>
-        </div>
-
+      <div className={styles.header}>
+        <h4>Class Name: {singleClass?.name} </h4>
+        <span>Teacher Name: {singleClass?.teacher?.name}</span>
+        <h5>Department: {singleClass?.department?.name}</h5>
+      </div>
+      <div className={styles.footer}>
+        <Link
+          to="/classes/view"
+          state={{ id: singleClass?.id }}
+          className={styles.viewBtn}
+        >
+          view
+        </Link>
+      </div>
     </div>
-  )
+  );
 }
 
-export default ClassCard
+export default ClassCard;

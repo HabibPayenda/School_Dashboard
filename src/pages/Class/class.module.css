@@ -1,0 +1,48 @@
+.classView {
+  width: 100%;
+  padding: 30px;
+}
+
+.classInfoCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 9px rgba(0,0,0,0.2);
+}
+
+.teacherInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 250px;
+}
+
+.teacherImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.img {
+  width: 100px;
+  height: 100px;
+  background-color: #21958f;
+  border-radius: 50%;
+}
+
+.teacherId{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.classInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px   ;
+}

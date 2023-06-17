@@ -18,6 +18,7 @@ import StudentsSharedLayout from "./pages/layouts/StudentsSharedLayout";
 import Students from "./pages/Students";
 import DepartmentsSharedLayout from "./pages/layouts/DepartmentsSharedLayout";
 import Departments from "./pages/Departments";
+import ClassDetails from "./pages/Class";
 
 function App() {
   return (
@@ -49,7 +50,7 @@ function App() {
 
               <Route path="/classes" element={<ClassesSharedLayout />}>
                 <Route index element={<Classes />} />
-                <Route path="view" element={<ClassView />} />
+                <Route path="view" element={<ClassDetails />} />
               </Route>
               <Route path="/reports" element={<Reports />} />
               <Route path="/logout" element={<Logout />} />
