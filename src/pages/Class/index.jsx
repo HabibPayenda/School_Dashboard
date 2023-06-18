@@ -8,30 +8,24 @@ import StudentCard from "../../components/studentCard";
 function ClassDetails() {
   const showClass = useSelector((state) => state.classes.showClass);
   const [isToday, setIsToday] = useState(false);
+  const loading = useSelector((state) => state.classes.loading);
 
   const dispatch = useDispatch();
   const location = useLocation();
-
-  useEffect(() => {
-    if (showClass?.attendences) {
-      const { attendences } = showClass;
-      const attendanceToday = attendences[attendences?.length - 1];
-      if (!attendanceToday) {
-        setIsToday(false);
-      } else {
-        const today = new Date();
-        const otherDate = new Date(attendanceToday?.created_at); // replace with your date
-
-        if (!(otherDate.getDate() >= today.getDate())) {
-          setIsToday(true);
-        }
-      }
-    }
-  }, [showClass]);
+  const { attendences } = showClass;
 
   useEffect(() => {
     dispatch(getClass(location?.state?.id));
   }, []);
+
+  useEffect(() => {
+    const attendanceToday = attendences[attendences?.length - 1];
+    const today = new Date();
+    const otherDate = new Date(attendanceToday?.created_at);
+    if (otherDate.getDate() >= today.getDate()) {
+      setIsToday(true);
+    }
+  }, [attendences, loading]);
 
   const handleAttendance = () => {
     dispatch(takeAttendance(showClass?.id));
@@ -64,10 +58,10 @@ function ClassDetails() {
           <p>Number of students: {showClass?.students?.length}</p>
         </div>
         {showClass?.students?.length > 0 ? (
-          !isToday ? (
-            <Link to="/classes/attendance"> View</Link>
+          isToday && showClass?.attendences?.length > 0 ? (
+            <Link to="/classes/attendance"> Take Attendance</Link>
           ) : (
-            <Link onClick={handleAttendance}>Take Attendance</Link>
+            <Link onClick={handleAttendance}>Create Attendance</Link>
           )
         ) : (
           <p>No students</p>

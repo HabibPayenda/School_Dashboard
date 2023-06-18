@@ -124,8 +124,15 @@ export const ClassesSlice = createSlice({
       // Code
       state.classes = action.payload.classes;
     });
+
     builder.addCase(getClass.fulfilled, (state, action) => {
       // Code
+      state.loading = "loading";
+    });
+
+    builder.addCase(getClass.fulfilled, (state, action) => {
+      // Code
+      state.loading = "ideal";
       state.showClass = action.payload.single_class;
     });
 
