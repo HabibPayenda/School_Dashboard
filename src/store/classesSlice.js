@@ -82,6 +82,34 @@ export const takeAttendance = createAsyncThunk(
   }
 );
 
+export const attendanceAction = createAsyncThunk(
+  "classes/handlePresent",
+  // { name, phone, email, password, subject }
+  async ({ attendence_id, student_id, status, id }) => {
+    try {
+      const result = await SchoolApi.post(
+        `/classes/take_attendance/${id}`,
+        {
+          attendence_id: attendence_id,
+          student_id: student_id,
+          status: status,
+        },
+        {
+          onUploadProgress: (progress) => {
+            if (progress.loaded / progress.total === 1) {
+            }
+          },
+        }
+      );
+      console.log(result.data);
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
+
 const initialState = {
   classes: [],
   showClass: {},
@@ -114,6 +142,24 @@ export const ClassesSlice = createSlice({
       toast.success("Class added successfully.", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
+    });
+
+    builder.addCase(attendanceAction.fulfilled, (state, action) => {
+      const attendences = state.showClass.attendences;
+      let attendence_records =
+        attendences[attendences.length - 1].attendence_records;
+
+      attendence_records = attendence_records.map((record) => {
+        if (record.id == action.payload.attendance_record.id) {
+          return action.payload.attendance_record;
+        } else {
+          return record;
+        }
+      });
+      console.log(attendence_records);
+      state.showClass.attendences[
+        state.showClass.attendences.length - 1
+      ].attendence_records = attendence_records;
     });
   },
 });

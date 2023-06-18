@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styles from "./addStudent.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addStudent } from "../../store/studentsSlice";
+import FormSelect from "../../components/FormSelect";
 
 function AddStudentModal({ setShowModal }) {
   const [name, setName] = useState("");
@@ -12,6 +13,14 @@ function AddStudentModal({ setShowModal }) {
   const [grade, setGrade] = useState("");
   const [date_of_birth, setDateOfBirth] = useState("");
   const [classId, setClassId] = useState("");
+
+  const classes = useSelector((state) => state.classes.classes);
+
+  let classesOptions = [];
+
+  classesOptions = classes.map((single_class) => {
+    return { title: single_class.name, value: single_class.id };
+  });
 
   const dispatch = useDispatch();
   const handleAddTeacher = () => {
@@ -87,12 +96,12 @@ function AddStudentModal({ setShowModal }) {
             type="date"
             placeholder="Subject"
           />
-          <input
+
+          <FormSelect
             value={classId}
-            onChange={(e) => setClassId(e.target.value)}
-            className={styles.input}
-            type="text"
-            placeholder="Class ID"
+            setValue={setClassId}
+            title="Class ID"
+            options={classesOptions}
           />
         </div>
       </div>

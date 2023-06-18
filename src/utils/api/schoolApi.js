@@ -12,7 +12,7 @@ const SchoolApi = axios.create({
 SchoolApi.interceptors.request.use(
   async (config) => {
     let token = localStorage.getItem("token");
-    token = token.replace(/['"]+/g, "");
+    token = token?.replace(/['"]+/g, "");
 
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
