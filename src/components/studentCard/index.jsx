@@ -23,7 +23,7 @@ function StudentCard({ student }) {
         </p>
       </div>
 
-      <Link to="view" className={styles.btn}>
+      <Link to="view" state={{ id: student?.id }} className={styles.btn}>
         View
       </Link>
     </div>
