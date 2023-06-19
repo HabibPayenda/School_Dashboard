@@ -9,6 +9,18 @@
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.18);
 }
 
+.container:hover {
+  box-shadow: 1px 1px 3px #aaa;
+  border: solid 1px lightseagreen;
+}
+
+.name {
+  background-color: #aaa;
+  color: white;
+  padding: 3px 12px;
+  border-radius: 6px;
+}
+
 .btnsContainer {
   display: flex;
   gap: 12px;
@@ -20,6 +32,10 @@
   background-color: #f9f9f9;
   color: lightseagreen;
   border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
 
 .btn:hover {
