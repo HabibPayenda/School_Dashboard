@@ -52,14 +52,6 @@ function SideBar() {
           <FontAwesomeIcon className={styles.icon} icon={faUserPen} />
           Students
         </NavLink>
-
-        <NavLink
-          className={({ isActive }) => (isActive ? "link active" : "link")}
-          to="/reports"
-        >
-          <FontAwesomeIcon className={styles.icon} icon={faFile} />
-          Reports
-        </NavLink>
         <NavLink
           className={({ isActive }) => (isActive ? "link active" : "link")}
           to="/logout"
