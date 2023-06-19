@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  width: 80%;
+  background-color: #9fd4d1;
+  height: 10%;
+  align-items: center;
+  gap: 12px;
+  padding: 0 12px;
+}
+
+.select {
+  display: flex;
+  flex: 1;
+  background-color: #9fd4d1;
+  border: none;
+  height: 100%;
+}
+
+.option {
+  width:  100%;
+  flex: 1;
+}
+
+.title {
+  color:  #006868;
+}

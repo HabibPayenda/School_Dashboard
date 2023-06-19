@@ -8,19 +8,22 @@ function FormSelect({ title, options, value, setValue }) {
 
   const renderOptions = () => {
     const selectOptions = options?.map((option) => (
-      <option value={option?.value}> {option?.title} </option>
+      <option className={styles.option} value={option?.value}>
+        {" "}
+        {option?.title}{" "}
+      </option>
     ));
     return selectOptions;
   };
 
   return (
-    <div>
-      <select value={value} onChange={handleChange}>
-        {renderOptions()}
-      </select>
-      <p>
+    <div className={styles.container}>
+      <p className={styles.title}>
         {title}: {value}
       </p>
+      <select className={styles.select} value={value} onChange={handleChange}>
+        {renderOptions()}
+      </select>
     </div>
   );
 }
