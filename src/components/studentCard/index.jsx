@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./studentCard.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faUserPen } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 function StudentCard({ student }) {
   return (
@@ -22,7 +23,9 @@ function StudentCard({ student }) {
         </p>
       </div>
 
-      <button className={styles.btn}>Profile</button>
+      <Link to="view" className={styles.btn}>
+        View
+      </Link>
     </div>
   );
 }

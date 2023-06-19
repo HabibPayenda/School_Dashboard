@@ -22,6 +22,7 @@ import ClassDetails from "./pages/Class";
 import ClassAttendance from "./pages/ClassAttendance";
 import DepartmentDetails from "./pages/DepartmentDetails";
 import TeacherDetails from "./pages/TeacherDetails";
+import StudentDetails from "./pages/StudentDetails";
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
 
               <Route path="/students" element={<StudentsSharedLayout />}>
                 <Route index element={<Students />} />
+                <Route path="view" element={<StudentDetails />} />
               </Route>
 
               <Route path="/classes" element={<ClassesSharedLayout />}>
