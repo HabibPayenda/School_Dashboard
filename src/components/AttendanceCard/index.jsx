@@ -42,7 +42,7 @@ function AttendanceCard({ record }) {
     );
   }
   return (
-    <div className={styles.container}>
+    <div key={record?.id} className={styles.container}>
       <p className={styles.name}>{student?.name}</p>
       <p>{statusText}</p>
       <div className={styles.btnsContainer}>
