@@ -21,6 +21,7 @@ import Departments from "./pages/Departments";
 import ClassDetails from "./pages/Class";
 import ClassAttendance from "./pages/ClassAttendance";
 import DepartmentDetails from "./pages/DepartmentDetails";
+import TeacherDetails from "./pages/TeacherDetails";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
 
               <Route path="/teachers" element={<TeachersSharedLayout />}>
                 <Route index element={<Teachers />} />
+                <Route path="view" element={<TeacherDetails />} />
               </Route>
 
               <Route path="/students" element={<StudentsSharedLayout />}>

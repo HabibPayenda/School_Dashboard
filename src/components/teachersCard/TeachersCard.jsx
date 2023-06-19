@@ -5,6 +5,7 @@ import {
   faChalkboardTeacher,
   faUserSecret,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 function TeachersCard({ teacher }) {
   return (
@@ -16,7 +17,9 @@ function TeachersCard({ teacher }) {
         <h2>{teacher?.name}</h2>
         <p>{teacher?.subject}</p>
       </div>
-      <button className={styles.btn}>View</button>
+      <Link to="view" className={styles.btn}>
+        View
+      </Link>
     </div>
   );
 }
