@@ -15,17 +15,18 @@ body {
     text-transform: uppercase;
     font-weight: bold;
     font-size: 14px;
+    width: 100%;
+    padding: 8px 20px;
+    text-align: left;
+    transition: all 0.3s;
 }
 
 .link:hover {
-   border: 2px solid lightseagreen;
-   border-radius: 5px;
-   padding: 5px 10px;
+   background-color: #3a9e9e;
+   color: #fafafa;
 }
 
 .active {
-    color: lightseagreen;
-   border: 2px solid lightseagreen;
-   border-radius: 5px;
-   padding: 5px 10px;
+    background-color: #36baba;
+    color: #fafafa;
 }

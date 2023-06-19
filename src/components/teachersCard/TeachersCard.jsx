@@ -16,7 +16,7 @@ function TeachersCard({ teacher }) {
         <h2>{teacher?.name}</h2>
         <p>{teacher?.subject}</p>
       </div>
-      <button className={styles.btn}>Profile</button>
+      <button className={styles.btn}>View</button>
     </div>
   );
 }
