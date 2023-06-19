@@ -1,20 +1,24 @@
 import React from "react";
 import styles from "./studentCard.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faUserPen } from "@fortawesome/free-solid-svg-icons";
 
-function StudentCard() {
+function StudentCard({ student }) {
   return (
     <div className={styles.teachersCardContainer}>
       <div className={styles.header}>
-        <div className={styles.img}></div>
-        <h2>Student</h2>
-        <p>Grade 10</p>
+        <div className={styles.img}>
+          <FontAwesomeIcon className={styles.icon} icon={faUser} />
+        </div>
+        <h2>{student?.name}</h2>
+        <p>Address: {student?.address}</p>
       </div>
       <div className={styles.contant}>
         <p className={styles.p}>
-          <span className={styles.percentage}>85%</span>month
+          <span className={styles.percentage}>85</span>Present
         </p>
         <p className={styles.p}>
-          <span className={styles.percentage}>87%</span>year
+          <span className={styles.percentage}>8</span>Absent
         </p>
       </div>
 
