@@ -1,44 +1,53 @@
 .teacherInfo {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    padding: 20px;
-    background-color: #9fd4d1;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin: 20px 0;
-  }
-  
-  .cards {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 28px;
-  }
-  
-  .btn{
-    background-color: #9fd4d1;
-    color: #21837e;
-    border: #21958f 2px solid;
-    padding: 10px 30px;
-    border-radius: 5px;
-    cursor: pointer;    
-    text-decoration: none;
-  }
-  
-  button {
-    font-weight: bold;
-  }
-  
-  .btn:hover {
-    opacity: 0.7;
-  }
-  
-  .btn:active {
-    transform: scale(.98);
-  }
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: #fafafa;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #21958f;
+  height: 10%;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.title {
+  color: #fafafa;
+}
+
+.cards {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 28px;
+  padding: 24px;
+}
+
+.btn {
+  background-color: #fafafa;
+  color: #21958f;
+  border: #21958f 2px solid;
+  padding: 10px 30px;
+  border-radius: 5px;
+  cursor: pointer;    
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+button {
+  font-weight: bold;
+}
+
+.btn:hover {
+  color: #fafafa;
+  background-color: #36c8c1;
+}
+
+.btn:active {
+  transform: scale(.98);
+}

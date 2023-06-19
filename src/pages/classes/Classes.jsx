@@ -30,9 +30,8 @@ function Classes() {
         <AddClassModal setShowModal={setShowModal} />
       </Modal>
       <div className={styles.header}>
-        <Link to="/classes" className={styles.btn}>
-          Back
-        </Link>
+        <h2 className={styles.title}>Manage Your Classes</h2>
+
         <button onClick={() => setShowModal(true)} className={styles.btn}>
           Add Class
         </button>
