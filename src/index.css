@@ -19,6 +19,9 @@ body {
     padding: 8px 20px;
     text-align: left;
     transition: all 0.3s;
+    display: flex;
+    gap: 12px;
+    align-items: center;
 }
 
 .link:hover {

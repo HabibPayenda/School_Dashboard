@@ -29,6 +29,10 @@
     background-color: black;
 }
 
+.icon {
+    font-size: 22px;
+}
+
 .link:hover {
     text-decoration: underline;
     border: #006868 1px solid;
