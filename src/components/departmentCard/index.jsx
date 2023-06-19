@@ -13,7 +13,7 @@ function DepartmentCard({ department }) {
         </div>
         <h2>{department?.name}</h2>
       </div>
-      <Link to="view" className={styles.btn}>
+      <Link to="view" state={{ id: department?.id }} className={styles.btn}>
         View
       </Link>
     </div>
