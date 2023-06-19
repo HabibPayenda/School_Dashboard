@@ -17,9 +17,29 @@ function AttendanceCard({ record }) {
   if (status === "pending") {
     statusText = "Pending";
   } else if (status === "present") {
-    statusText = <FontAwesomeIcon icon={faCheck} />;
+    statusText = (
+      <FontAwesomeIcon
+        style={{
+          background: "green",
+          padding: "3px 12px",
+          color: "#fafafa",
+          borderRadius: "6px",
+        }}
+        icon={faCheck}
+      />
+    );
   } else if (status === "absent") {
-    statusText = <FontAwesomeIcon icon={faXmark} />;
+    statusText = (
+      <FontAwesomeIcon
+        style={{
+          background: "darkred",
+          padding: "3px 12px",
+          color: "#fafafa",
+          borderRadius: "6px",
+        }}
+        icon={faXmark}
+      />
+    );
   }
   return (
     <div className={styles.container}>
