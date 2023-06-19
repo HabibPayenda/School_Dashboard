@@ -59,6 +59,26 @@ export const addStudent = createAsyncThunk(
   }
 );
 
+export const addStudentParent = createAsyncThunk(
+  "students/addStudentParent",
+  async (data) => {
+    console.log("data is ");
+    console.log(data);
+    try {
+      const result = await SchoolApi.post("/students_parent", data, {
+        onUploadProgress: (progress) => {
+          if (progress.loaded / progress.total === 1) {
+          }
+        },
+      });
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
+
 const initialState = {
   students: [],
   showStudent: {},
@@ -81,6 +101,14 @@ export const StudentsSlice = createSlice({
     builder.addCase(addStudent.rejected, (state, action) => {
       // Code
       toast.error("Try again.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+
+    builder.addCase(addStudentParent.fulfilled, (state, action) => {
+      // Code
+      state.showStudent = action.payload.student;
+      toast.success("Parent added successfully.", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
     });

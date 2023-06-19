@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./studentDetails.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
@@ -6,8 +6,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 import { getStudent } from "../../store/studentsSlice";
+import Modal from "../../components/Modal";
+import AddPrentModal from "../../Modals/AddParentModal";
 
 function StudentDetails() {
+  const [showModal, setShowModal] = useState(false);
   const student = useSelector((state) => state.students.showStudent);
   console.log(student);
 
@@ -29,6 +32,9 @@ function StudentDetails() {
 
   return (
     <div className={styles.classView}>
+      <Modal showModal={showModal} setShowModal={setShowModal}>
+        <AddPrentModal setShowModal={setShowModal} />
+      </Modal>
       <div className={styles.classInfoCard}>
         <div className={styles.teacherInfo}>
           <div className={styles.teacherImg}>
@@ -50,7 +56,9 @@ function StudentDetails() {
             <p>Phone: {student?.parent?.phone}</p>
           </div>
         ) : (
-          <button className={styles.btn}>Add Parent</button>
+          <button onClick={() => setShowModal(true)} className={styles.btn}>
+            Add Parent
+          </button>
         )}
       </div>
 
