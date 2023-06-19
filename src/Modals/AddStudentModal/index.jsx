@@ -100,7 +100,7 @@ function AddStudentModal({ setShowModal }) {
           <FormSelect
             value={classId}
             setValue={setClassId}
-            title="Class ID"
+            title="Class"
             options={classesOptions}
           />
         </div>

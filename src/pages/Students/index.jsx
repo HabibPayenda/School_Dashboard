@@ -31,9 +31,8 @@ function Students() {
         <AddStudentModal setShowModal={setShowModal} />
       </Modal>
       <div className={styles.header}>
-        <Link to="/students" className={styles.btn}>
-          Back
-        </Link>
+        <h2 className={styles.title}>See All Your Students</h2>
+
         <button onClick={() => setShowModal(true)} className={styles.btn}>
           Add Student
         </button>

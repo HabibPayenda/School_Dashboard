@@ -2,15 +2,21 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 20px;
-  background-color: #9fd4d1;
+  background-color: #fafafa;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin: 20px 0;
+  background-color: #21958f;
+  height: 10%;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.title {
+  color: #fafafa;
 }
 
 .cards {
@@ -19,16 +25,18 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 28px;
+  padding: 24px;
 }
 
-.btn{
-  background-color: #9fd4d1;
-  color: #21837e;
+.btn {
+  background-color: #fafafa;
+  color: #21958f;
   border: #21958f 2px solid;
   padding: 10px 30px;
   border-radius: 5px;
   cursor: pointer;    
   text-decoration: none;
+  transition: all 0.3s;
 }
 
 button {
@@ -36,7 +44,8 @@ button {
 }
 
 .btn:hover {
-  opacity: 0.7;
+  color: #fafafa;
+  background-color: #36c8c1;
 }
 
 .btn:active {
