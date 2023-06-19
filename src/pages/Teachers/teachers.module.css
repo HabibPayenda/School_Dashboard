@@ -2,7 +2,6 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 20px;
   background-color: #9fd4d1;
 }
 
@@ -10,7 +9,14 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin: 20px 0;
+  background-color: #21958f;
+  height: 10%;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.title {
+  color: #9fd4d1;
 }
 
 .cards {
@@ -19,6 +25,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 28px;
+  padding: 24px;
 }
 
 .btn{

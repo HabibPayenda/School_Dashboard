@@ -33,9 +33,7 @@ function Teachers() {
         <AddTeacherModal setShowModal={setShowModal} />
       </Modal>
       <div className={styles.header}>
-        <Link to="/teachers" className={styles.btn}>
-          Back
-        </Link>
+        <h2 className={styles.title}>See all the teachers added</h2>
         <button onClick={() => setShowModal(true)} className={styles.btn}>
           Add Teachers
         </button>
