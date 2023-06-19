@@ -4,6 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { getClass, takeAttendance } from "../../store/classesSlice";
 import { Link, useLocation } from "react-router-dom";
 import StudentCard from "../../components/studentCard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBlackboard,
+  faCalendarCheck,
+  faCalendarPlus,
+  faUserPen,
+} from "@fortawesome/free-solid-svg-icons";
 
 function ClassDetails() {
   const showClass = useSelector((state) => state.classes.showClass);
@@ -47,11 +54,13 @@ function ClassDetails() {
       <div className={styles.classInfoCard}>
         <div className={styles.teacherInfo}>
           <div className={styles.teacherImg}>
-            <div className={styles.img}></div>
+            <div className={styles.img}>
+              <FontAwesomeIcon className={styles.icon} icon={faBlackboard} />
+            </div>
           </div>
           <div className={styles.teacherId}>
             <h4>Teacher Name: {showClass?.teacher?.name}</h4>
-            <span>Phone : {showClass?.teacher?.phone}</span>
+            <span>Subject: {showClass?.teacher?.subject}</span>
           </div>
         </div>
         <div className={styles.classInfo}>
@@ -60,9 +69,16 @@ function ClassDetails() {
         </div>
         {showClass?.students?.length > 0 ? (
           isToday && showClass?.attendences?.length > 0 ? (
-            <Link to="/classes/attendance"> Take Attendance</Link>
+            <Link className={styles.btn} to="/classes/attendance">
+              <FontAwesomeIcon
+                className={styles.icon2}
+                icon={faCalendarCheck}
+              />
+            </Link>
           ) : (
-            <Link onClick={handleAttendance}>Create Attendance</Link>
+            <Link className={styles.btn} onClick={handleAttendance}>
+              <FontAwesomeIcon className={styles.icon2} icon={faCalendarPlus} />
+            </Link>
           )
         ) : (
           <p>No students</p>
