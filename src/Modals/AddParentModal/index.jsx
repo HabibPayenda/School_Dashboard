@@ -41,17 +41,17 @@ function AddPrentModal({ setShowModal }) {
           />
           <input
             className={styles.input}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            type="text"
-            placeholder="email"
-          />
-          <input
-            className={styles.input}
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             type="text"
             placeholder="Mobile"
+          />
+          <input
+            className={styles.input}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            type="text"
+            placeholder="email"
           />
           <input
             className={styles.input}
