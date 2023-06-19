@@ -19,7 +19,8 @@ function ClassDetails() {
   }, []);
 
   useEffect(() => {
-    const attendanceToday = attendences[attendences?.length - 1];
+    const attendanceToday =
+      attendences?.length > 0 ? attendences[attendences?.length - 1] : null;
     const today = new Date();
     const otherDate = new Date(attendanceToday?.created_at);
     if (otherDate.getDate() >= today.getDate()) {

@@ -19,7 +19,7 @@ function AddStudentModal({ setShowModal }) {
   let classesOptions = [];
 
   classesOptions = classes.map((single_class) => {
-    return { title: single_class.name, value: single_class.id };
+    return { title: single_class?.name, value: single_class?.id };
   });
 
   const dispatch = useDispatch();

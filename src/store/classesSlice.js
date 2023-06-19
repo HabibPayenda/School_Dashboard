@@ -64,7 +64,6 @@ export const addClass = createAsyncThunk(
 );
 export const takeAttendance = createAsyncThunk(
   "classes/takeAttendance",
-  // { name, phone, email, password, subject }
   async (id) => {
     try {
       const result = await SchoolApi.get(`/classes/take_attendance/${id}`, {
@@ -73,7 +72,7 @@ export const takeAttendance = createAsyncThunk(
           }
         },
       });
-      console.log(result.data);
+      console.log(result);
       return result.data;
     } catch (error) {
       console.log(error);
@@ -125,7 +124,7 @@ export const ClassesSlice = createSlice({
       state.classes = action.payload.classes;
     });
 
-    builder.addCase(getClass.fulfilled, (state, action) => {
+    builder.addCase(getClass.pending, (state, action) => {
       // Code
       state.loading = "loading";
     });
@@ -147,6 +146,14 @@ export const ClassesSlice = createSlice({
       // Code
       state.classes = [...state.classes, action.payload.single_class];
       toast.success("Class added successfully.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+
+    builder.addCase(takeAttendance.fulfilled, (state, action) => {
+      // Code
+      state.showClass = action.payload.single_class;
+      toast.success("Attendance created successfully.", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
     });
