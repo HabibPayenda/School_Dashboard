@@ -4,7 +4,7 @@
     background-color: white;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 3px 3px 9px rgba(0,0,0,0.2);
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     display: flex;
     gap: 20px;
     flex-direction: column;

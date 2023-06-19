@@ -16,7 +16,7 @@ function ClassCard({ singleClass }) {
           state={{ id: singleClass?.id }}
           className={styles.viewBtn}
         >
-          view
+          View
         </Link>
       </div>
     </div>
