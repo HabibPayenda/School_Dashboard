@@ -2,21 +2,23 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    padding: 20px;
-    background-color: #9fd4d1;
+    background-color: #fafafa;
 }
 
 .header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
-    margin: 50px 0;
-    color: white;
-}
-
-.header h2 {
-    text-shadow: 4px 4px 12px rgba(0,0,0,0.2);
-}
+    background-color: #21958f;
+    height: 10%;
+    align-items: center;
+    padding: 0 24px;
+    margin-bottom: 24px;
+  }
+  
+  .title {
+    color: #fafafa;
+  }
 
 .cards {
     display: flex;

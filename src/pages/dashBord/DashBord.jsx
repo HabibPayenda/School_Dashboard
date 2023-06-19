@@ -5,7 +5,7 @@ function DashBord() {
   return (
     <div className={styles.dashBord}>
       <div className={styles.header}>
-        <h2>School Name</h2>
+        <h3 className={styles.title}>Welcome to Your Dashboard</h3>
       </div>
       <div className={styles.cards}>
         <DashBordCard title="Teacher Card" url="teacherInfo" />
