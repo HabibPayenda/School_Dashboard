@@ -1,24 +1,18 @@
 import React from "react";
 import styles from "./department.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouseLaptop } from "@fortawesome/free-solid-svg-icons";
 
-function DepartmentCard() {
+function DepartmentCard({ department }) {
   return (
     <div className={styles.teachersCardContainer}>
       <div className={styles.header}>
-        <div className={styles.img}></div>
-        <h2>Department</h2>
-        <p>Ahmad</p>
+        <div className={styles.img}>
+          <FontAwesomeIcon className={styles.icon} icon={faHouseLaptop} />
+        </div>
+        <h2>{department?.name}</h2>
       </div>
-      <div className={styles.contant}>
-        <p className={styles.p}>
-          <span className={styles.percentage}>85%</span>month
-        </p>
-        <p className={styles.p}>
-          <span className={styles.percentage}>87%</span>year
-        </p>
-      </div>
-
-      <button className={styles.btn}>Profile</button>
+      <button className={styles.btn}>View</button>
     </div>
   );
 }
