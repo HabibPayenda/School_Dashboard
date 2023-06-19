@@ -3,6 +3,20 @@
   flex: 1;
   flex-direction: column;
   width: 90%;
+  background-color: #fafafa;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  margin-bottom: 12px;
+  gap: 12px;
 }
 
 .contentContainer {
@@ -10,4 +24,5 @@
   flex-direction: column;
   height: 30px;
   width: 100%;
+  align-items: center;
 }

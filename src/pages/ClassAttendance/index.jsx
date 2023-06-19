@@ -26,7 +26,9 @@ function ClassAttendance() {
   };
   return (
     <div className={styles.container}>
-      <h1>Take Attendances</h1>
+      <div className={styles.header}>
+        <h1>Take Attendances</h1>
+      </div>
       <div className={styles.contentContainer}>{renderAttendanceTable()}</div>
     </div>
   );

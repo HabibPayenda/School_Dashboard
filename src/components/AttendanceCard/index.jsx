@@ -14,9 +14,19 @@ function AttendanceCard({ record }) {
     <div className={styles.container}>
       <p>{student?.name}</p>
       <p>{status}</p>
-      <div>
-        <button onClick={() => hanldeAttendance("present")}>Present</button>
-        <button onClick={() => hanldeAttendance("absent")}>Absent</button>
+      <div className={styles.btnsContainer}>
+        <button
+          className={styles.btn}
+          onClick={() => hanldeAttendance("present")}
+        >
+          Present
+        </button>
+        <button
+          className={styles.btn}
+          onClick={() => hanldeAttendance("absent")}
+        >
+          Absent
+        </button>
       </div>
     </div>
   );

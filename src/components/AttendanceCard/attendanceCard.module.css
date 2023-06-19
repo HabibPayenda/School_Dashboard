@@ -2,9 +2,28 @@
   display: flex;
   flex: 1;
   padding: 6px 10px;
-  width: 100%;
+  width: 95%;
   align-items: center;
   justify-content: space-between;
   background-color: #fafafa;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.18);
+}
+
+.btnsContainer {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  padding: 5px 12px;
+  border: solid 1px lightseagreen;
+  background-color: #f9f9f9;
+  color: lightseagreen;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: lightseagreen;
+  color: #fafafa;
 }
