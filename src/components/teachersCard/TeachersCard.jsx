@@ -17,7 +17,7 @@ function TeachersCard({ teacher }) {
         <h2>{teacher?.name}</h2>
         <p>{teacher?.subject}</p>
       </div>
-      <Link to="view" className={styles.btn}>
+      <Link to="view" state={{ id: teacher?.id }} className={styles.btn}>
         View
       </Link>
     </div>

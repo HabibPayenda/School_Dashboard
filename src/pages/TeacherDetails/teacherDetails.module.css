@@ -1,6 +1,76 @@
-.container {
+.classView {
+  width: 100%;
+  background-color: #fafafa;
+}
+
+.classInfoCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  margin-bottom: 12px;
+  gap: 12px;
+}
+
+.teacherInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.teacherImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  width: 100px;
+  height: 100px;
+  background-color: #21958f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  font-size: 32px;
+  color: #fafafa;
+}
+
+.btn {
+  background-color: #21958f;
+  margin-right: 24px;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.icon2 {
+  font-size: 22px;
+  color: #fafafa;
+}
+
+.teacherId{
   display: flex;
   flex-direction: column;
-  background-color: #fafafa;
-  flex: 1;
+  gap: 10px;
+}
+
+.classInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px   ;
+}
+
+.studentsContainer {
+  padding: 0 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }

@@ -7,7 +7,7 @@ import { faHouseLaptop } from "@fortawesome/free-solid-svg-icons";
 import { getDepartment } from "../../store/departmentsSlice";
 import ClassCard from "../../components/classCard/ClassCard";
 
-function ClassDetails() {
+function DepartmentDetails() {
   const department = useSelector((state) => state.departments.showDepartment);
   console.log(department);
 
@@ -50,4 +50,4 @@ function ClassDetails() {
   );
 }
 
-export default ClassDetails;
+export default DepartmentDetails;
