@@ -94,3 +94,12 @@
 .btn:active {
   transform: scale(.98);
 }
+
+.contentContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-self: center;
+  gap: 12px;
+  padding: 24px;
+}

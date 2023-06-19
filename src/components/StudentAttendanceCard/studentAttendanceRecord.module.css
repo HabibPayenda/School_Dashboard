@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  padding: 6px 10px;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fafafa;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.18);
+  gap: 12px;
+  box-sizing: border-box;
+}
+
+.container:hover {
+  box-shadow: 1px 1px 3px #aaa;
+  border: solid 1px lightseagreen;
+}
+
+.name {
+  background-color: #aaa;
+  color: white;
+  padding: 3px 12px;
+  border-radius: 6px;
+}
+
+.btnsContainer {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  padding: 5px 12px;
+  border: solid 1px lightseagreen;
+  background-color: #f9f9f9;
+  color: lightseagreen;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: lightseagreen;
+  color: #fafafa;
+}

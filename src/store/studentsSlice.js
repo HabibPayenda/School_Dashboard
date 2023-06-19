@@ -79,9 +79,28 @@ export const addStudentParent = createAsyncThunk(
   }
 );
 
+export const getStudentAttendanceRecords = createAsyncThunk(
+  "students/getStudentAttendanceRecords",
+  async (id) => {
+    try {
+      const result = await SchoolApi.get(`/student_attendance/${id}`, {
+        onUploadProgress: (progress) => {
+          if (progress.loaded / progress.total === 1) {
+          }
+        },
+      });
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
+
 const initialState = {
   students: [],
   showStudent: {},
+  records: [],
   loading: "idle",
 };
 
@@ -119,6 +138,11 @@ export const StudentsSlice = createSlice({
       toast.success("Student added successfully.", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
+    });
+
+    builder.addCase(getStudentAttendanceRecords.fulfilled, (state, action) => {
+      // Code
+      state.records = action.payload.records;
     });
   },
 });

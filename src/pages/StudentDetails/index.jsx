@@ -5,13 +5,20 @@ import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
-import { getStudent } from "../../store/studentsSlice";
+import {
+  getStudent,
+  getStudentAttendanceRecords,
+} from "../../store/studentsSlice";
 import Modal from "../../components/Modal";
 import AddPrentModal from "../../Modals/AddParentModal";
+import AttendanceCard from "../../components/AttendanceCard";
+import StudentAttendanceCard from "../../components/StudentAttendanceCard";
 
 function StudentDetails() {
   const [showModal, setShowModal] = useState(false);
   const student = useSelector((state) => state.students.showStudent);
+  const records = useSelector((state) => state.students.records);
+  console.log(records);
   console.log(student);
 
   const dispatch = useDispatch();
@@ -19,15 +26,16 @@ function StudentDetails() {
 
   useEffect(() => {
     dispatch(getStudent(location?.state?.id));
+    dispatch(getStudentAttendanceRecords(location?.state?.id));
   }, []);
 
-  const renderClasses = () => {
-    // let cards = teacher?.school_classes?.map((single_class) => {
-    //   return <ClassCard singleClass={single_class} />;
-    // });
-    // if (teacher?.school_classes?.length < 1)
-    //   return <h1>No classes in this department</h1>;
-    // return cards;
+  const renderRecords = () => {
+    let cards = records?.map((record) => {
+      return <StudentAttendanceCard record={record} />;
+    });
+    if (records?.length < 1)
+      return <h1>No Attendance records for this student</h1>;
+    return cards;
   };
 
   return (
@@ -62,7 +70,7 @@ function StudentDetails() {
         )}
       </div>
 
-      <div className={styles.studentsContainer}>{renderClasses()}</div>
+      <div className={styles.contentContainer}>{renderRecords()}</div>
     </div>
   );
 }
