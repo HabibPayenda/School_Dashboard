@@ -20,6 +20,7 @@ import DepartmentsSharedLayout from "./pages/layouts/DepartmentsSharedLayout";
 import Departments from "./pages/Departments";
 import ClassDetails from "./pages/Class";
 import ClassAttendance from "./pages/ClassAttendance";
+import DepartmentDetails from "./pages/DepartmentDetails";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
 
               <Route path="/departments" element={<DepartmentsSharedLayout />}>
                 <Route index element={<Departments />} />
+                <Route path="view" element={<DepartmentDetails />} />
               </Route>
 
               <Route path="/teachers" element={<TeachersSharedLayout />}>

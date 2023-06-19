@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./department.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouseLaptop } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 function DepartmentCard({ department }) {
   return (
@@ -12,7 +13,9 @@ function DepartmentCard({ department }) {
         </div>
         <h2>{department?.name}</h2>
       </div>
-      <button className={styles.btn}>View</button>
+      <Link to="view" className={styles.btn}>
+        View
+      </Link>
     </div>
   );
 }

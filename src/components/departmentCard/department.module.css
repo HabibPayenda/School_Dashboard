@@ -66,6 +66,10 @@
   background-color: white;
   border:lightseagreen solid 1px;
   color: #006868;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 
 .btn:hover {
