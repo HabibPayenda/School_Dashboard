@@ -50,7 +50,7 @@ function StudentDetails() {
         <div className={styles.classInfo}>
           <h4>Department Name: {student?.department?.name}</h4>
         </div>
-        {student?.parents?.name ? (
+        {student?.parent?.name ? (
           <div className={styles.classInfo}>
             <p>Parent: {student?.parent?.name}</p>
             <p>Phone: {student?.parent?.phone}</p>

@@ -65,7 +65,7 @@ export const addStudentParent = createAsyncThunk(
     console.log("data is ");
     console.log(data);
     try {
-      const result = await SchoolApi.post("/students_parent", data, {
+      const result = await SchoolApi.post("/parents", data, {
         onUploadProgress: (progress) => {
           if (progress.loaded / progress.total === 1) {
           }
