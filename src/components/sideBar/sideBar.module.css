@@ -8,8 +8,11 @@
    width:  15%;
 }
 
-.admin {
-    margin: 40px;
+.logo {
+    margin-top: 12px;
+    margin-bottom: 36px;
+    height: 100px;
+    width: 100px;
 }
 
 .links {

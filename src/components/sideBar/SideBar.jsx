@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./sideBar.module.css";
 import { NavLink } from "react-router-dom";
+import logoImage from "../../assets/logo.png";
 import {
   faBlackboard,
   faChalkboardTeacher,
@@ -14,8 +15,7 @@ import {
 function SideBar() {
   return (
     <div className={styles.sideBar}>
-      <h4 className={styles.admin}>Admin</h4>
-
+      <img className={styles.logo} src={logoImage} />
       <div className={styles.links}>
         <NavLink
           className={({ isActive }) => (isActive ? "link active" : "link")}
