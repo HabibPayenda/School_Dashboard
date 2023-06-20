@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./studentLogin.module.css";
+import { teacherLogin } from "../../store/loginSlice";
+import { useDispatch } from "react-redux";
 
 function StudentLogin() {
+  const dispatch = useDispatch();
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const data = {
+      name: name,
+      password: password,
+    };
+    dispatch(teacherLogin(data));
+  };
   return (
     <div>
       {/* Title section */}
@@ -15,14 +29,26 @@ function StudentLogin() {
 
       {/* Login section */}
       <section className={styles["login"]}>
-        <form>
+        <form onSubmit={handleLogin}>
           <div className={styles.formItem}>
             <label htmlFor="username">Username: </label>
-            <input type="text" id="username" name="username" />
+            <input
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              type="text"
+              id="username"
+              name="username"
+            />
           </div>
           <div className={styles.formItem}>
             <label htmlFor="password">Password: </label>
-            <input type="password" id="password" name="password" />
+            <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              id="password"
+              name="password"
+            />
           </div>
 
           <button type="submit" className={styles["login-btn"]}>

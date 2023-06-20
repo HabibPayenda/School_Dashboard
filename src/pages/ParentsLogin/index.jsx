@@ -29,7 +29,7 @@ function ParentsLogin() {
 
       {/* Login section */}
       <section className={styles["login"]}>
-        <form>
+        <form onSubmit={handleLogin}>
           <div className={styles.formItem}>
             <label htmlFor="username">Username: </label>
             <input
