@@ -5,7 +5,6 @@ import Classes from "./pages/classes/Classes";
 import Reports from "./pages/reports/Reports";
 import Logout from "./pages/logout/Logout";
 import SideBar from "./components/sideBar/SideBar";
-import ClassView from "./components/classView/ClassView";
 import ClassesSharedLayout from "./pages/layouts/ClassesSharedLayout";
 import TeacherInfo from "./pages/teacherInfo/TeacherInfo";
 import DashBordSharedLayout from "./pages/layouts/DashBordSharedLayout";
@@ -23,10 +22,13 @@ import ClassAttendance from "./pages/ClassAttendance";
 import DepartmentDetails from "./pages/DepartmentDetails";
 import TeacherDetails from "./pages/TeacherDetails";
 import StudentDetails from "./pages/StudentDetails";
+import Home from "./pages/Home";
 
-function App() {
-  return (
-    <div className="app">
+const user = localStorage.getItem("user");
+
+const startApp = () => {
+  if (user) {
+    return (
       <Provider store={store}>
         <BrowserRouter>
           <SideBar />
@@ -66,8 +68,23 @@ function App() {
           </div>
         </BrowserRouter>
       </Provider>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <BrowserRouter>
+        <div className="routes">
+          <Routes>
+            <Route exact path="/" element={<Navigate to="/home" />} />
+            <Route path="/home" element={<Home />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    );
+  }
+};
+
+function App() {
+  return <div className="app">{startApp()}</div>;
 }
 
 export default App;
