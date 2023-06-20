@@ -1,10 +1,4 @@
-import {
-  BrowserRouter,
-  Navigate,
-  Route,
-  Routes,
-  useNavigate,
-} from "react-router-dom";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
 import DashBord from "./pages/dashBord/DashBord";
 import Classes from "./pages/classes/Classes";
@@ -15,8 +9,7 @@ import ClassesSharedLayout from "./pages/layouts/ClassesSharedLayout";
 import TeacherInfo from "./pages/teacherInfo/TeacherInfo";
 import DashBordSharedLayout from "./pages/layouts/DashBordSharedLayout";
 import StudentInfo from "./pages/studentInfo/StudentInfo";
-import { Provider, useSelector } from "react-redux";
-import store from "./store/store";
+import { useSelector } from "react-redux";
 import TeachersSharedLayout from "./pages/layouts/TeachersSharedLayout";
 import Teachers from "./pages/Teachers";
 import StudentsSharedLayout from "./pages/layouts/StudentsSharedLayout";
