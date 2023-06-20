@@ -5,7 +5,7 @@ import SchoolApi from "../utils/api/schoolApi";
 export const adminLogin = createAsyncThunk("login/adminLogin", async () => {
   // Code
   try {
-    const result = await SchoolApi.get("/admins_login", {
+    const result = await SchoolApi.get("/login_admin", {
       onUploadProgress: (progress) => {
         if (progress.loaded / progress.total === 1) {
         }
@@ -22,6 +22,7 @@ const initialState = {
   user: [],
   userType: {},
   loading: "idle",
+  error: "",
 };
 
 export const LoginSlice = createSlice({
@@ -35,9 +36,18 @@ export const LoginSlice = createSlice({
         "userType",
         JSON.stringify(action.payload.user_type)
       );
+      state.error = "";
       state.user = action.payload.user;
       state.userType = action.payload.user_type;
       toast.info("Wellcome to your account.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+
+    builder.addCase(adminLogin.rejected, (state, action) => {
+      // Code
+      state.error = action.payload.message;
+      toast.error(action.payload.message, {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
     });
