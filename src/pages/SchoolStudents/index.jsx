@@ -4,6 +4,7 @@ import studentImage from "../../assets/students.jpg";
 import stemImage from "../../assets/stem.png";
 import artImage from "../../assets/art.jpg";
 import depateImage from "../../assets/debate.jpg";
+import { Link } from "react-router-dom";
 
 function SchoolStudents() {
   return (
@@ -19,7 +20,9 @@ function SchoolStudents() {
             college and beyond. Learn more about our programs and activities
             below.
           </p>
-          <button className={styles["apply-btn"]}>Student Login</button>
+          <Link to="/home/student_login" className={styles["apply-btn"]}>
+            Student Login
+          </Link>
         </div>
       </section>
 

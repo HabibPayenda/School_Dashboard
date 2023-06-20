@@ -1,14 +1,14 @@
 import React from "react";
-import styles from "./teacherLogin.module.css";
+import styles from "./studentLogin.module.css";
 
-function TeacherLogin() {
+function StudentLogin() {
   return (
     <div>
       {/* Title section */}
       <section className={styles["title"]}>
-        <h1>Teacher Login</h1>
+        <h1>Student Login</h1>
         <p>
-          This page is for teachers login. If you are not a teacher, please
+          This page is for students login. If you are not a student, please
           login in the appropriate section.
         </p>
       </section>
@@ -34,4 +34,4 @@ function TeacherLogin() {
   );
 }
 
-export default TeacherLogin;
+export default StudentLogin;
