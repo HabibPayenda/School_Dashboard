@@ -40,11 +40,12 @@ import ParentsLogin from "./pages/ParentsLogin";
 import { useEffect, useState } from "react";
 
 function App() {
-  const user = localStorage.getItem("user");
+  const user = JSON.parse(localStorage.getItem("user"));
   const [app, setApp] = useState(null);
   const storeUser = useSelector((state) => state.login.user);
   const navigate = useNavigate();
   console.log(storeUser);
+  console.log(user);
   const startApp = () => {
     if (user?.name || storeUser?.password) {
       navigate("/", { replace: true });
@@ -108,7 +109,7 @@ function App() {
   useEffect(() => {
     const appCall = startApp();
     setApp(appCall);
-  }, [user, storeUser]);
+  }, [storeUser]);
   return <div className="app">{app}</div>;
 }
 
