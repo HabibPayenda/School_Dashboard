@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./sideBar.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import logoImage from "../../assets/logo.png";
 import {
   faBlackboard,
@@ -12,8 +12,16 @@ import {
   faUserGraduate,
   faUserPen,
 } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
+import { logOut } from "../../store/loginSlice";
 
 function SideBar() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    navigate("/", { replace: true });
+    dispatch(logOut());
+  };
   return (
     <div className={styles.sideBar}>
       <img className={styles.logo} src={logoImage} />
@@ -53,13 +61,14 @@ function SideBar() {
           <FontAwesomeIcon className={styles.icon} icon={faUserGraduate} />
           Students
         </NavLink>
-        <NavLink
-          className={({ isActive }) => (isActive ? "link active" : "link")}
-          to="/logout"
+        <button
+          className="link"
+          style={{ backgroundColor: "transparent", border: "none" }}
+          onClick={handleLogOut}
         >
           <FontAwesomeIcon className={styles.icon} icon={faSignOut} />
           Logout
-        </NavLink>
+        </button>
       </div>
     </div>
   );

@@ -8,7 +8,8 @@ function AdminLogin() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
     const data = {
       name: name,
       password: password,
@@ -28,7 +29,7 @@ function AdminLogin() {
 
       {/* Login section */}
       <section className={styles["login"]}>
-        <form>
+        <form onSubmit={handleLogin}>
           <div className={styles.formItem}>
             <label htmlFor="username">Username: </label>
             <input

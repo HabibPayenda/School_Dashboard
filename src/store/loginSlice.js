@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import SchoolApi from "../utils/api/schoolApi";
+import { Navigate } from "react-router-dom";
 
 export const adminLogin = createAsyncThunk("login/adminLogin", async (data) => {
   // Code
@@ -12,6 +13,18 @@ export const adminLogin = createAsyncThunk("login/adminLogin", async (data) => {
       },
     });
     return result.data;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+});
+
+export const logOut = createAsyncThunk("login/logOut", async () => {
+  // Code
+  try {
+    localStorage.removeItem("user");
+    localStorage.removeItem("userType");
+    return 1;
   } catch (error) {
     console.log(error);
     return error;
@@ -31,25 +44,35 @@ export const LoginSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(adminLogin.fulfilled, (state, action) => {
       // Code
-      localStorage.setItem("user", JSON.stringify(action.payload.user));
-      localStorage.setItem(
-        "userType",
-        JSON.stringify(action.payload.user_type)
-      );
-      state.error = "";
-      state.user = action.payload.user;
-      state.userType = action.payload.user_type;
-      toast.info("Wellcome to your account.", {
-        position: toast.POSITION.BOTTOM_RIGHT,
-      });
+      if (action.payload.status === "error") {
+        state.error = action.payload.message;
+        toast.error(action.payload.message, {
+          position: toast.POSITION.BOTTOM_RIGHT,
+        });
+      } else {
+        localStorage.setItem("user", JSON.stringify(action.payload.user));
+        localStorage.setItem(
+          "userType",
+          JSON.stringify(action.payload.user_type)
+        );
+        state.error = "";
+        state.user = action.payload.user;
+        state.userType = action.payload.user_type;
+        toast.info("Wellcome to your account.", {
+          position: toast.POSITION.BOTTOM_RIGHT,
+        });
+      }
     });
 
     builder.addCase(adminLogin.rejected, (state, action) => {
       // Code
       state.error = action.payload.message;
-      toast.error(action.payload.message, {
-        position: toast.POSITION.BOTTOM_RIGHT,
-      });
+    });
+
+    builder.addCase(logOut.fulfilled, (state, action) => {
+      // Code
+      state.user = {};
+      state.userType = "";
     });
   },
 });

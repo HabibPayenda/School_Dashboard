@@ -1,5 +1,4 @@
 import styles from "./dashBord.module.css";
-import DashBordCard from "../../components/dashbordCard/DashBordCard";
 import DashboardCard from "../../components/DashboardCard";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,6 +13,7 @@ import {
   faUserGraduate,
   faUserPen,
 } from "@fortawesome/free-solid-svg-icons";
+import { Navigate } from "react-router-dom";
 
 function DashBord() {
   const dispatch = useDispatch();
@@ -22,6 +22,8 @@ function DashBord() {
   const teachers = useSelector((state) => state.teachers.teachers);
   const classes = useSelector((state) => state.classes.classes);
   const students = useSelector((state) => state.students.students);
+
+  const user = localStorage.getItem("user");
 
   useEffect(() => {
     dispatch(getAllDepartments());
