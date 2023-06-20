@@ -27,8 +27,20 @@
   transition: all 0.3s;
 }
 
+.activeLink {
+  text-decoration: none;
+  border: solid 1px navy;
+  background-color: rgba(0, 0, 128, 0.509);
+  border-radius: 12px;
+  color: #fafafa;
+  padding: 3px 12px;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
 .link:hover {
   background-color: navy;
   color: #fafafa;
   cursor: pointer;
 }
+

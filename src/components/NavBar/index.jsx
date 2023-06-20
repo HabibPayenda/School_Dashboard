@@ -1,27 +1,47 @@
 import React from "react";
 import logoImag from "../../assets/logo.png";
 import styles from "./navBar.module.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function NavBar() {
   return (
     <div className={styles.container}>
-      <Link to="/">
+      <NavLink to="/home" style={{ backgroundColor: "transparent" }}>
         <img className={styles.logo} src={logoImag} alt="" />
-      </Link>
+      </NavLink>
       <div className={styles.links}>
-        <Link to="teachers" className={styles.link}>
+        <NavLink
+          to="teachers"
+          className={({ isActive }) =>
+            isActive ? styles.activeLink : styles.link
+          }
+        >
           Teachers
-        </Link>
-        <Link to="students" className={styles.link}>
+        </NavLink>
+        <NavLink
+          to="students"
+          className={({ isActive }) =>
+            isActive ? styles.activeLink : styles.link
+          }
+        >
           Students
-        </Link>
-        <Link to="parents" className={styles.link}>
+        </NavLink>
+        <NavLink
+          to="parents"
+          className={({ isActive }) =>
+            isActive ? styles.activeLink : styles.link
+          }
+        >
           Parents
-        </Link>
-        <Link to="admin_login" className={styles.link}>
+        </NavLink>
+        <NavLink
+          to="admin_login"
+          className={({ isActive }) =>
+            isActive ? styles.activeLink : styles.link
+          }
+        >
           Login
-        </Link>
+        </NavLink>
       </div>
     </div>
   );
