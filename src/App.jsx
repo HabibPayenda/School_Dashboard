@@ -114,7 +114,7 @@ function App() {
       } else if (userType === "student") {
         return (
           <>
-            <SideBar />
+            <TeacherSidebar />
 
             <div className="routes">
               <Routes>
@@ -133,7 +133,7 @@ function App() {
       } else if (userType === "parent") {
         return (
           <>
-            <SideBar />
+            <TeacherSidebar />
 
             <div className="routes">
               <Routes>
