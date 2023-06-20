@@ -37,45 +37,43 @@ const user = localStorage.getItem("user");
 const startApp = () => {
   if (user) {
     return (
-      <Provider store={store}>
-        <BrowserRouter>
-          <SideBar />
+      <BrowserRouter>
+        <SideBar />
 
-          <div className="routes">
-            <Routes>
-              <Route exact path="/" element={<Navigate to="/dashboard" />} />
-              <Route path="/dashboard" element={<DashBordSharedLayout />}>
-                <Route index element={<DashBord />} />
-                <Route path="teacherInfo" element={<TeacherInfo />} />
-                <Route path="studentInfo" element={<StudentInfo />} />
-              </Route>
+        <div className="routes">
+          <Routes>
+            <Route exact path="/" element={<Navigate to="/dashboard" />} />
+            <Route path="/dashboard" element={<DashBordSharedLayout />}>
+              <Route index element={<DashBord />} />
+              <Route path="teacherInfo" element={<TeacherInfo />} />
+              <Route path="studentInfo" element={<StudentInfo />} />
+            </Route>
 
-              <Route path="/departments" element={<DepartmentsSharedLayout />}>
-                <Route index element={<Departments />} />
-                <Route path="view" element={<DepartmentDetails />} />
-              </Route>
+            <Route path="/departments" element={<DepartmentsSharedLayout />}>
+              <Route index element={<Departments />} />
+              <Route path="view" element={<DepartmentDetails />} />
+            </Route>
 
-              <Route path="/teachers" element={<TeachersSharedLayout />}>
-                <Route index element={<Teachers />} />
-                <Route path="view" element={<TeacherDetails />} />
-              </Route>
+            <Route path="/teachers" element={<TeachersSharedLayout />}>
+              <Route index element={<Teachers />} />
+              <Route path="view" element={<TeacherDetails />} />
+            </Route>
 
-              <Route path="/students" element={<StudentsSharedLayout />}>
-                <Route index element={<Students />} />
-                <Route path="view" element={<StudentDetails />} />
-              </Route>
+            <Route path="/students" element={<StudentsSharedLayout />}>
+              <Route index element={<Students />} />
+              <Route path="view" element={<StudentDetails />} />
+            </Route>
 
-              <Route path="/classes" element={<ClassesSharedLayout />}>
-                <Route index element={<Classes />} />
-                <Route path="view" element={<ClassDetails />} />
-                <Route path="attendance" element={<ClassAttendance />} />
-              </Route>
-              <Route path="/reports" element={<Reports />} />
-              <Route path="/logout" element={<Logout />} />
-            </Routes>
-          </div>
-        </BrowserRouter>
-      </Provider>
+            <Route path="/classes" element={<ClassesSharedLayout />}>
+              <Route index element={<Classes />} />
+              <Route path="view" element={<ClassDetails />} />
+              <Route path="attendance" element={<ClassAttendance />} />
+            </Route>
+            <Route path="/reports" element={<Reports />} />
+            <Route path="/logout" element={<Logout />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
     );
   } else {
     return (
@@ -99,7 +97,11 @@ const startApp = () => {
 };
 
 function App() {
-  return <div className="app">{startApp()}</div>;
+  return (
+    <div className="app">
+      <Provider store={store}>{startApp()}</Provider>
+    </div>
+  );
 }
 
 export default App;

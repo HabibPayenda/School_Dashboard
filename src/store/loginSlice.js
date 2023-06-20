@@ -2,10 +2,10 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import SchoolApi from "../utils/api/schoolApi";
 
-export const adminLogin = createAsyncThunk("login/adminLogin", async () => {
+export const adminLogin = createAsyncThunk("login/adminLogin", async (data) => {
   // Code
   try {
-    const result = await SchoolApi.get("/login_admin", {
+    const result = await SchoolApi.post("/login_admin", data, {
       onUploadProgress: (progress) => {
         if (progress.loaded / progress.total === 1) {
         }
