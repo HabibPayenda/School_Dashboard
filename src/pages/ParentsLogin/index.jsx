@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./parentsLogin.module.css";
+import { useDispatch } from "react-redux";
+import { parentLogin } from "../../store/loginSlice";
 
 function ParentsLogin() {
+  const dispatch = useDispatch();
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const data = {
+      name: name,
+      password: password,
+    };
+    dispatch(parentLogin(data));
+  };
   return (
     <div>
       {/* Title section */}
@@ -18,11 +32,23 @@ function ParentsLogin() {
         <form>
           <div className={styles.formItem}>
             <label htmlFor="username">Username: </label>
-            <input type="text" id="username" name="username" />
+            <input
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              type="text"
+              id="username"
+              name="username"
+            />
           </div>
           <div className={styles.formItem}>
             <label htmlFor="password">Password: </label>
-            <input type="password" id="password" name="password" />
+            <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              id="password"
+              name="password"
+            />
           </div>
 
           <button type="submit" className={styles["login-btn"]}>
