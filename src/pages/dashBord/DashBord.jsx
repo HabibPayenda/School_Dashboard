@@ -64,8 +64,11 @@ function DashBord() {
         </div>
       </div>
       <p className={styles.copyRight}>
-        Made with <span style={{ color: "dodgerblue" }}> &#10084; </span> by
-        Ahmad Javad Payenda in 2023 &#169;
+        <div>
+          Made with <span style={{ color: "dodgerblue" }}> &#10084; </span> by
+          Ahmad Javad Payenda.
+        </div>
+        All Rights Reserved &#169; 2023
       </p>
     </div>
   );
