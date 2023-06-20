@@ -100,6 +100,13 @@ function App() {
                   }
                 />
                 <Route path="/dashboard" element={<TeacherDetails />}></Route>
+                <Route path="/classes/view" element={<ClassDetails />} />
+                <Route path="/students/view" element={<StudentDetails />} />
+
+                <Route
+                  path="/classes/attendance"
+                  element={<ClassAttendance />}
+                />
               </Routes>
             </div>
           </>
