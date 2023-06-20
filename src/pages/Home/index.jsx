@@ -9,11 +9,12 @@ function Home() {
       <section className={styles.hero}>
         <img src={schoolImage} alt="School" />
         <div className={styles["hero-text"]}>
-          <h1>Welcome to Our School</h1>
+          <h1>Welcome to the Afghan School</h1>
           <p>
-            Our school is a vibrant learning community that inspires academic
-            excellence, fosters artistic expression, and nurtures the whole
-            child.
+            The Afghan School is a non-profit organization that provides
+            education to children in Afghanistan, with a focus on girls'
+            education. Our mission is to empower the next generation of Afghan
+            leaders through education.
           </p>
           <button>Apply Now</button>
         </div>
@@ -22,29 +23,28 @@ function Home() {
       <section className={styles.about}>
         <h2>About Us</h2>
         <p>
-          Founded in 1923, Our School is a private K-12 school located in the
-          heart of Anytown, USA. Our dedicated faculty and staff provide a
-          challenging and supportive academic program that prepares students for
-          success in college and beyond. We offer a wide range of
-          extracurricular activities, including athletics, music, drama, and
-          community service, to help students develop their talents and
-          interests. Our mission is to educate the whole child and instill in
-          our students a love of learning, a commitment to excellence, and a
-          sense of responsibility to their community and the world.
+          The Afghan School was founded in 2003 by a group of Afghan and
+          international educators who were committed to improving education in
+          Afghanistan. The school is located in Kabul and serves students from
+          kindergarten through twelfth grade. Our curriculum is designed to meet
+          the needs of Afghan students and includes subjects such as math,
+          science, Dari, and English. We also offer extracurricular activities
+          such as sports, music, and art to help students develop their talents
+          and interests.
         </p>
       </section>
 
       <section className={styles.contacts}>
         <h2>Contact Us</h2>
         <ul>
-          <li>Address: 123 Main St, Anytown USA</li>
-          <li>Phone: (555) 555-1234</li>
-          <li>Email: info@ourschool.com</li>
+          <li>Address: 123 Main St, Kabul, Afghanistan</li>
+          <li>Phone: +93 799 123 456</li>
+          <li>Email: info@afghanschool.org</li>
         </ul>
       </section>
 
       <footer className={styles.footer}>
-        <p>&copy; 2023 Our School. All rights reserved.</p>
+        <p>&copy; 2023 Afghan School. All rights reserved.</p>
       </footer>
     </div>
   );
