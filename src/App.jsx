@@ -31,6 +31,7 @@ import TeacherLogin from "./pages/TeacherLogin";
 import StudentLogin from "./pages/StudentLogin";
 import ParentsLogin from "./pages/ParentsLogin";
 import { useEffect, useState } from "react";
+import TeacherSidebar from "./components/TeacherSidebar";
 
 function App() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -87,7 +88,7 @@ function App() {
       } else if (userType === "teacher") {
         return (
           <>
-            <SideBar />
+            <TeacherSidebar />
 
             <div className="routes">
               <Routes>
