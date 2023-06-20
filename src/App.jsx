@@ -43,51 +43,112 @@ function App() {
   const user = JSON.parse(localStorage.getItem("user"));
   const [app, setApp] = useState(null);
   const storeUser = useSelector((state) => state.login.user);
+  const userType = JSON.parse(localStorage.getItem("userType"));
   const navigate = useNavigate();
-  console.log(storeUser);
-  console.log(user);
   const startApp = () => {
     if (user?.name || storeUser?.password) {
       navigate("/", { replace: true });
-      return (
-        <>
-          <SideBar />
+      if (userType === "admin") {
+        return (
+          <>
+            <SideBar />
 
-          <div className="routes">
-            <Routes>
-              <Route exact path="/" element={<Navigate to="/dashboard" />} />
-              <Route path="/dashboard" element={<DashBordSharedLayout />}>
-                <Route index element={<DashBord />} />
-                <Route path="teacherInfo" element={<TeacherInfo />} />
-                <Route path="studentInfo" element={<StudentInfo />} />
-              </Route>
+            <div className="routes">
+              <Routes>
+                <Route exact path="/" element={<Navigate to="/dashboard" />} />
+                <Route path="/dashboard" element={<DashBordSharedLayout />}>
+                  <Route index element={<DashBord />} />
+                  <Route path="teacherInfo" element={<TeacherInfo />} />
+                  <Route path="studentInfo" element={<StudentInfo />} />
+                </Route>
 
-              <Route path="/departments" element={<DepartmentsSharedLayout />}>
-                <Route index element={<Departments />} />
-                <Route path="view" element={<DepartmentDetails />} />
-              </Route>
+                <Route
+                  path="/departments"
+                  element={<DepartmentsSharedLayout />}
+                >
+                  <Route index element={<Departments />} />
+                  <Route path="view" element={<DepartmentDetails />} />
+                </Route>
 
-              <Route path="/teachers" element={<TeachersSharedLayout />}>
-                <Route index element={<Teachers />} />
-                <Route path="view" element={<TeacherDetails />} />
-              </Route>
+                <Route path="/teachers" element={<TeachersSharedLayout />}>
+                  <Route index element={<Teachers />} />
+                  <Route path="view" element={<TeacherDetails />} />
+                </Route>
 
-              <Route path="/students" element={<StudentsSharedLayout />}>
-                <Route index element={<Students />} />
-                <Route path="view" element={<StudentDetails />} />
-              </Route>
+                <Route path="/students" element={<StudentsSharedLayout />}>
+                  <Route index element={<Students />} />
+                  <Route path="view" element={<StudentDetails />} />
+                </Route>
 
-              <Route path="/classes" element={<ClassesSharedLayout />}>
-                <Route index element={<Classes />} />
-                <Route path="view" element={<ClassDetails />} />
-                <Route path="attendance" element={<ClassAttendance />} />
-              </Route>
-              <Route path="/reports" element={<Reports />} />
-              <Route path="/logout" element={<Logout />} />
-            </Routes>
-          </div>
-        </>
-      );
+                <Route path="/classes" element={<ClassesSharedLayout />}>
+                  <Route index element={<Classes />} />
+                  <Route path="view" element={<ClassDetails />} />
+                  <Route path="attendance" element={<ClassAttendance />} />
+                </Route>
+                <Route path="/reports" element={<Reports />} />
+                <Route path="/logout" element={<Logout />} />
+              </Routes>
+            </div>
+          </>
+        );
+      } else if (userType === "teacher") {
+        return (
+          <>
+            <SideBar />
+
+            <div className="routes">
+              <Routes>
+                <Route
+                  exact
+                  path="/"
+                  element={
+                    <Navigate to="/dashboard" state={{ id: user?.id }} />
+                  }
+                />
+                <Route path="/dashboard" element={<TeacherDetails />}></Route>
+              </Routes>
+            </div>
+          </>
+        );
+      } else if (userType === "student") {
+        return (
+          <>
+            <SideBar />
+
+            <div className="routes">
+              <Routes>
+                <Route
+                  exact
+                  path="/"
+                  element={
+                    <Navigate to="/dashboard" state={{ id: user?.id }} />
+                  }
+                />
+                <Route path="/dashboard" element={<StudentDetails />}></Route>
+              </Routes>
+            </div>
+          </>
+        );
+      } else if (userType === "parent") {
+        return (
+          <>
+            <SideBar />
+
+            <div className="routes">
+              <Routes>
+                <Route
+                  exact
+                  path="/"
+                  element={
+                    <Navigate to="/dashboard" state={{ id: user?.id }} />
+                  }
+                />
+                <Route path="/dashboard" element={<StudentDetails />}></Route>
+              </Routes>
+            </div>
+          </>
+        );
+      }
     } else {
       return (
         <Routes>
