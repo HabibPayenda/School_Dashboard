@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: lightblue;
+  justify-content: space-between;
+  padding: 6px 36px;
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
+}
+
+.links { 
+  display: flex;
+  gap: 12px;
+}
+
+.link {
+  text-decoration: none;
+  border: solid 1px navy;
+  border-radius: 12px;
+  color: navy;
+  padding: 3px 12px;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.link:hover {
+  background-color: navy;
+  color: #fafafa;
+  cursor: pointer;
+}

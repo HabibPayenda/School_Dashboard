@@ -23,6 +23,7 @@ import DepartmentDetails from "./pages/DepartmentDetails";
 import TeacherDetails from "./pages/TeacherDetails";
 import StudentDetails from "./pages/StudentDetails";
 import Home from "./pages/Home";
+import HomeSharedLayout from "./pages/layouts/HomeSharedLayout";
 
 const user = localStorage.getItem("user");
 
@@ -72,12 +73,12 @@ const startApp = () => {
   } else {
     return (
       <BrowserRouter>
-        <div className="routes">
-          <Routes>
-            <Route exact path="/" element={<Navigate to="/home" />} />
-            <Route path="/home" element={<Home />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route exact path="/" element={<Navigate to="/home" />} />
+          <Route path="/home" element={<HomeSharedLayout />}>
+            <Route index element={<Home />} />
+          </Route>
+        </Routes>
       </BrowserRouter>
     );
   }
