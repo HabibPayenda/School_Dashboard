@@ -24,7 +24,7 @@ const initialState = {
   loading: "idle",
 };
 
-export const DepartmentsSlice = createSlice({
+export const LoginSlice = createSlice({
   name: "departments",
   initialState,
   extraReducers: (builder) => {
@@ -44,4 +44,4 @@ export const DepartmentsSlice = createSlice({
   },
 });
 
-export default DepartmentsSlice.reducer;
+export default LoginSlice.reducer;
