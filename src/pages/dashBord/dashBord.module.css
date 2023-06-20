@@ -3,6 +3,9 @@
     flex: 1;
     flex-direction: column;
     background-color: #fafafa;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
 }
 
 .header {
@@ -38,5 +41,10 @@
 
 .btn{
     background-color: lightseagreen;
-    
+}
+
+.copyRight {
+  position: absolute;
+  bottom: 24px; 
+  font-size: 12px; 
 }

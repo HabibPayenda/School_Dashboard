@@ -23,7 +23,7 @@ function SideBar() {
           to="/dashboard"
         >
           <FontAwesomeIcon className={styles.icon} icon={faDashboard} />
-          DashBord
+          DashBoard
         </NavLink>
         <NavLink
           className={({ isActive }) => (isActive ? "link active" : "link")}
