@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./teacherLogin.module.css";
 import { useDispatch } from "react-redux";
+import { teacherLogin } from "../../store/loginSlice";
 
 function TeacherLogin() {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ function TeacherLogin() {
       name: name,
       password: password,
     };
-    dispatch(adminLogin(data));
+    dispatch(teacherLogin(data));
   };
   return (
     <div>
