@@ -11,7 +11,9 @@ function NavBar() {
         <Link to="teachers" className={styles.link}>
           Teachers
         </Link>
-        <a className={styles.link}>Students</a>
+        <Link to="students" className={styles.link}>
+          Students
+        </Link>
         <a className={styles.link}>Parents</a>
         <a className={styles.link}>Login</a>
       </div>
