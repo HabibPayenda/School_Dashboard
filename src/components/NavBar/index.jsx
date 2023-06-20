@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 function NavBar() {
   return (
     <div className={styles.container}>
-      <img className={styles.logo} src={logoImag} alt="" />
+      <Link to="/">
+        <img className={styles.logo} src={logoImag} alt="" />
+      </Link>
       <div className={styles.links}>
         <Link to="teachers" className={styles.link}>
           Teachers

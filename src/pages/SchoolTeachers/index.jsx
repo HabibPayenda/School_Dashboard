@@ -3,6 +3,7 @@ import styles from "./schoolTeachers.module.css";
 
 import teachersImage from "../../assets/teachers.jpg";
 import teacherImage from "../../assets/teacher.jpg";
+import { Link } from "react-router-dom";
 
 function SchoolTeachers() {
   return (
@@ -18,7 +19,9 @@ function SchoolTeachers() {
             education that prepares them for success in college and beyond.
             Learn more about our teachers below.
           </p>
-          <button className={styles["login-btn"]}>Teacher Login</button>
+          <Link to="/home/teacher_login" className={styles["login-btn"]}>
+            Teacher Login
+          </Link>
         </div>
       </section>
 

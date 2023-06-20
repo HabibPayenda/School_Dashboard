@@ -16,7 +16,6 @@ function Home() {
             education. Our mission is to empower the next generation of Afghan
             leaders through education.
           </p>
-          <button>Apply Now</button>
         </div>
       </section>
 
