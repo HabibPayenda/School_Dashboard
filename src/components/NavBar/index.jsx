@@ -14,7 +14,9 @@ function NavBar() {
         <Link to="students" className={styles.link}>
           Students
         </Link>
-        <a className={styles.link}>Parents</a>
+        <Link to="parents" className={styles.link}>
+          Parents
+        </Link>
         <a className={styles.link}>Login</a>
       </div>
     </div>

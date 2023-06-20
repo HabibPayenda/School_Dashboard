@@ -26,6 +26,7 @@ import Home from "./pages/Home";
 import HomeSharedLayout from "./pages/layouts/HomeSharedLayout";
 import SchoolTeachers from "./pages/SchoolTeachers";
 import SchoolStudents from "./pages/SchoolStudents";
+import SchoolParents from "./pages/SchoolParents";
 
 const user = localStorage.getItem("user");
 
@@ -81,6 +82,7 @@ const startApp = () => {
             <Route index element={<Home />} />
             <Route path="teachers" element={<SchoolTeachers />} />
             <Route path="students" element={<SchoolStudents />} />
+            <Route path="parents" element={<SchoolParents />} />
           </Route>
         </Routes>
       </BrowserRouter>
