@@ -11,15 +11,26 @@ import {
 } from "../../store/studentsSlice";
 import Modal from "../../components/Modal";
 import AddPrentModal from "../../Modals/AddParentModal";
-import AttendanceCard from "../../components/AttendanceCard";
 import StudentAttendanceCard from "../../components/StudentAttendanceCard";
 
 function StudentDetails() {
   const [showModal, setShowModal] = useState(false);
   const student = useSelector((state) => state.students.showStudent);
   const records = useSelector((state) => state.students.records);
-  console.log(records);
-  console.log(student);
+
+  let present = 0;
+  let absent = 0;
+
+  records?.forEach((record) => {
+    if (record.status == "present") {
+      present += 1;
+    } else if (record.status == "absent") {
+      absent += 1;
+    }
+  });
+
+  const presentPercentage = (present / records?.length) * 100;
+  const absentPercentage = (absent / records?.length) * 100;
 
   const dispatch = useDispatch();
   const location = useLocation();
@@ -57,6 +68,10 @@ function StudentDetails() {
         </div>
         <div className={styles.classInfo}>
           <h4>Department Name: {student?.department?.name}</h4>
+        </div>
+        <div className={styles.classInfo}>
+          <h4>Present: {presentPercentage} %</h4>
+          <h4>Absent: {absentPercentage} %</h4>
         </div>
         {student?.parent?.name ? (
           <div className={styles.classInfo}>

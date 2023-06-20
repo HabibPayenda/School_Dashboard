@@ -14,14 +14,6 @@ function StudentCard({ student }) {
         <h2>{student?.name}</h2>
         <p>Address: {student?.address}</p>
       </div>
-      <div className={styles.contant}>
-        <p className={styles.p}>
-          <span className={styles.percentage}>85</span>Present
-        </p>
-        <p className={styles.p}>
-          <span className={styles.percentage}>8</span>Absent
-        </p>
-      </div>
 
       <Link
         to="/students/view"

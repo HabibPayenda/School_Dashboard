@@ -9,6 +9,7 @@ import {
   faFile,
   faHouseLaptop,
   faSignOut,
+  faUserGraduate,
   faUserPen,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -49,7 +50,7 @@ function SideBar() {
           className={({ isActive }) => (isActive ? "link active" : "link")}
           to="/students"
         >
-          <FontAwesomeIcon className={styles.icon} icon={faUserPen} />
+          <FontAwesomeIcon className={styles.icon} icon={faUserGraduate} />
           Students
         </NavLink>
         <NavLink
