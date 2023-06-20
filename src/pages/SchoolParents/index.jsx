@@ -4,6 +4,7 @@ import fatherImage from "../../assets/father.jpg";
 import fatherTeacher from "../../assets/fatherTeacher.jpg";
 import parentWorkshopImage from "../../assets/parentWorkshop.jpg";
 import studentLeadImage from "../../assets/studentLead.jpg";
+import { Link } from "react-router-dom";
 
 function SchoolParents() {
   return (
@@ -19,7 +20,9 @@ function SchoolParents() {
             information about your child's education. Learn more about our
             programs and activities below.
           </p>
-          <button className={styles["login-btn"]}>Parent Login</button>
+          <Link to="/home/parent_login" className={styles["login-btn"]}>
+            Parent Login
+          </Link>
         </div>
       </section>
 

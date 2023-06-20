@@ -30,6 +30,7 @@ import SchoolParents from "./pages/SchoolParents";
 import AdminLogin from "./pages/AdminLogin";
 import TeacherLogin from "./pages/TeacherLogin";
 import StudentLogin from "./pages/StudentLogin";
+import ParentsLogin from "./pages/ParentsLogin";
 
 const user = localStorage.getItem("user");
 
@@ -89,6 +90,7 @@ const startApp = () => {
             <Route path="admin_login" element={<AdminLogin />} />
             <Route path="teacher_login" element={<TeacherLogin />} />
             <Route path="student_login" element={<StudentLogin />} />
+            <Route path="parent_login" element={<ParentsLogin />} />
           </Route>
         </Routes>
       </BrowserRouter>
