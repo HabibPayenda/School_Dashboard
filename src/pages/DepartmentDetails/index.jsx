@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./departmentDetails.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouseLaptop } from "@fortawesome/free-solid-svg-icons";
-import { getDepartment } from "../../store/departmentsSlice";
+import { deleteDepartment, getDepartment } from "../../store/departmentsSlice";
 import ClassCard from "../../components/classCard/ClassCard";
+import Modal from "../../components/Modal";
+import EditDepartmentModal from "../../Modals/EditDepartmentModal";
 
 function DepartmentDetails() {
   const department = useSelector((state) => state.departments.showDepartment);
@@ -14,9 +16,16 @@ function DepartmentDetails() {
   const dispatch = useDispatch();
   const location = useLocation();
 
+  const [showModal, setShowModal] = useState(false);
+
   useEffect(() => {
     dispatch(getDepartment(location?.state?.id));
   }, []);
+
+  const handleDelete = () => {
+    dispatch(deleteDepartment(department?.id));
+    navigate("/departments", { replace: true });
+  };
 
   const renderClasses = () => {
     let cards = department?.school_classes?.map((single_class) => {
@@ -29,6 +38,9 @@ function DepartmentDetails() {
 
   return (
     <div className={styles.classView}>
+      <Modal showModal={showModal} setShowModal={setShowModal}>
+        <EditDepartmentModal setShowModal={setShowModal} />
+      </Modal>
       <div className={styles.classInfoCard}>
         <div className={styles.teacherInfo}>
           <div className={styles.teacherImg}>
@@ -45,7 +57,9 @@ function DepartmentDetails() {
         </div>
         <div className={styles.classInfo}>
           <div className={styles.btnsContainer}>
-            <p className={styles.btn}>Edit</p>
+            <p onClick={() => setShowModal(true)} className={styles.btn}>
+              Edit
+            </p>
             <p className={styles.btn}>Delete</p>
           </div>
         </div>

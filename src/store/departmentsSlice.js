@@ -59,6 +59,25 @@ export const addDepartment = createAsyncThunk(
   }
 );
 
+export const deleteDepartment = createAsyncThunk(
+  "departments/deleteDepartment",
+  // { name, phone, email, password, subject }
+  async (id) => {
+    try {
+      const result = await SchoolApi.delete(`/departments/${id}`, {
+        onUploadProgress: (progress) => {
+          if (progress.loaded / progress.total === 1) {
+          }
+        },
+      });
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
+
 const initialState = {
   departments: [],
   showDepartment: {},
@@ -89,6 +108,17 @@ export const DepartmentsSlice = createSlice({
       // Code
       state.departments = [...state.departments, action.payload.department];
       toast.success("Department added successfully.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+
+    builder.addCase(addDepartment.fulfilled, (state, action) => {
+      // Code
+      const departments = state.departments.filter(
+        (department) => department.id !== action.payload
+      );
+      state.departments = departments;
+      toast.warn("Department deleted successfully.", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
     });
