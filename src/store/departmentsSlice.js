@@ -112,7 +112,7 @@ export const DepartmentsSlice = createSlice({
       });
     });
 
-    builder.addCase(addDepartment.fulfilled, (state, action) => {
+    builder.addCase(deleteDepartment.fulfilled, (state, action) => {
       // Code
       const departments = state.departments.filter(
         (department) => department.id !== action.payload

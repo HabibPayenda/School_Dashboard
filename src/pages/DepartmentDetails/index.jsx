@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./departmentDetails.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouseLaptop } from "@fortawesome/free-solid-svg-icons";
 import { deleteDepartment, getDepartment } from "../../store/departmentsSlice";
@@ -15,6 +15,7 @@ function DepartmentDetails() {
 
   const dispatch = useDispatch();
   const location = useLocation();
+  const navigate = useNavigate();
 
   const [showModal, setShowModal] = useState(false);
 
@@ -60,7 +61,9 @@ function DepartmentDetails() {
             <p onClick={() => setShowModal(true)} className={styles.btn}>
               Edit
             </p>
-            <p className={styles.btn}>Delete</p>
+            <p onClick={handleDelete} className={styles.btn}>
+              Delete
+            </p>
           </div>
         </div>
       </div>
