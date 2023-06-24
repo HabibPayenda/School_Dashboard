@@ -43,6 +43,12 @@ function DepartmentDetails() {
         <div className={styles.classInfo}>
           <p>Number of classes: {department?.school_classes?.length}</p>
         </div>
+        <div className={styles.classInfo}>
+          <div className={styles.btnsContainer}>
+            <p className={styles.btn}>Edit</p>
+            <p className={styles.btn}>Delete</p>
+          </div>
+        </div>
       </div>
 
       <div className={styles.studentsContainer}>{renderClasses()}</div>
