@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./editDepartment.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addDepartment } from "../../store/departmentsSlice";
+import { addDepartment, updateDepartment } from "../../store/departmentsSlice";
 
 function EditDepartmentModal({ setShowModal }) {
   const department = useSelector((state) => state.departments.showDepartment);
@@ -9,12 +9,13 @@ function EditDepartmentModal({ setShowModal }) {
 
   const dispatch = useDispatch();
 
-  const handleAddTeacher = () => {
+  const handleUpdateDepartment = () => {
     const data = {
       name: name,
+      id: department?.id,
     };
 
-    dispatch(addDepartment(data));
+    dispatch(updateDepartment(data));
     setShowModal(false);
   };
 
@@ -38,8 +39,8 @@ function EditDepartmentModal({ setShowModal }) {
         <button onClick={() => setShowModal(false)} className={styles.btn}>
           Close
         </button>
-        <button onClick={handleAddTeacher} className={styles.btn}>
-          Add
+        <button onClick={handleUpdateDepartment} className={styles.btn}>
+          Update
         </button>
       </div>
     </div>
