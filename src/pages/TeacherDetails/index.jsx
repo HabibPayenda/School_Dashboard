@@ -7,6 +7,8 @@ import { faHouseLaptop } from "@fortawesome/free-solid-svg-icons";
 
 import { getTeacher } from "../../store/teachersSlice";
 import ClassCard from "../../components/classCard/ClassCard";
+import Modal from "../../components/Modal";
+import EditTeacherModal from "../../Modals/EditTeacherModal";
 
 function TeacherDetails() {
   const teacher = useSelector((state) => state.teachers.showTeacher);
@@ -39,6 +41,9 @@ function TeacherDetails() {
 
   return (
     <div className={styles.classView}>
+      <Modal showModal={showModal} setShowModal={setShowModal}>
+        <EditTeacherModal setShowModal={setShowModal} />
+      </Modal>
       <div className={styles.classInfoCard}>
         <div className={styles.teacherInfo}>
           <div className={styles.teacherImg}>

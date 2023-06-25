@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import styles from "./addTeacher.module.css";
+import styles from "./editTeacherModal.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addTeacher, updateTeacher } from "../../store/teachersSlice";
+import { updateTeacher } from "../../store/teachersSlice";
 import { useNavigate, useNavigation } from "react-router-dom";
 
 function EditTeacherModal({ setShowModal }) {
