@@ -1,16 +1,25 @@
 import React, { useState } from "react";
 import styles from "./addClassModal.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addDepartment } from "../../store/departmentsSlice";
 import { addClass } from "../../store/classesSlice";
+import FormSelect from "../../components/FormSelect";
 
 function AddClassModal({ setShowModal }) {
+  const teachers = useSelector((state) => state.teachers.teachers);
+
   const [name, setName] = useState("");
   const [roomNumber, setRoomNumber] = useState("");
   const [departmentId, setDepartmentId] = useState("");
-  const [teacherId, setTeacherId] = useState("");
+  const [teacherId, setTeacherId] = useState(teachers[0]?.id);
 
   const dispatch = useDispatch();
+
+  let teachersOptions = [];
+
+  teachersOptions = teachers.map((teacher) => {
+    return { title: teacher?.name, value: teacher?.id };
+  });
 
   const handleAddClass = () => {
     console.log("name is ");
@@ -54,12 +63,11 @@ function AddClassModal({ setShowModal }) {
             type="text"
             placeholder="Department Id"
           />
-          <input
-            className={styles.input}
+          <FormSelect
             value={teacherId}
-            onChange={(e) => setTeacherId(e.target.value)}
-            type="text"
-            placeholder="Teacher Id"
+            setValue={setTeacherId}
+            title="Teacher"
+            options={teachersOptions}
           />
         </div>
       </div>

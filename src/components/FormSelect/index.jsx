@@ -9,8 +9,7 @@ function FormSelect({ title, options, value, setValue }) {
   const renderOptions = () => {
     const selectOptions = options?.map((option) => (
       <option className={styles.option} value={option?.value}>
-        {" "}
-        {option?.title}{" "}
+        {option?.title}
       </option>
     ));
     return selectOptions;
@@ -18,9 +17,7 @@ function FormSelect({ title, options, value, setValue }) {
 
   return (
     <div className={styles.container}>
-      <p className={styles.title}>
-        {title}: {value}
-      </p>
+      <p className={styles.title}>{title}:</p>
       <select className={styles.select} value={value} onChange={handleChange}>
         {renderOptions()}
       </select>
