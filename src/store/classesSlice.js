@@ -82,7 +82,7 @@ export const updateClass = createAsyncThunk(
 );
 
 export const deleteClass = createAsyncThunk(
-  "classes/updateClass",
+  "classes/deleteClass",
   async (id) => {
     try {
       const result = await SchoolApi.delete(`/classes/${id}`, {
