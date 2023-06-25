@@ -75,6 +75,25 @@ export const updateTeacher = createAsyncThunk(
   }
 );
 
+export const deleteTeacher = createAsyncThunk(
+  "teachers/deleteTeacher",
+  // { name, phone, email, password, subject }
+  async (id) => {
+    try {
+      const result = await SchoolApi.delete(`/teachers/${id}`, {
+        onUploadProgress: (progress) => {
+          if (progress.loaded / progress.total === 1) {
+          }
+        },
+      });
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
+
 const initialState = {
   teachers: [],
   showTeacher: {},
@@ -121,6 +140,17 @@ export const TeachersSlice = createSlice({
       });
       state.teachers = teachers;
       toast.success("Teacher updated successfully.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+
+    builder.addCase(deleteTeacher.fulfilled, (state, action) => {
+      // Code
+      const teachers = state.teachers.filter(
+        (teacher) => teacher.id !== action.payload.teacher.id
+      );
+      state.teachers = teachers;
+      toast.warn("Teacher deleted successfully.", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
     });
