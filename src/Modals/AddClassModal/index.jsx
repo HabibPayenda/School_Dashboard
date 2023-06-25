@@ -7,10 +7,11 @@ import FormSelect from "../../components/FormSelect";
 
 function AddClassModal({ setShowModal }) {
   const teachers = useSelector((state) => state.teachers.teachers);
+  const departments = useSelector((state) => state.departments.departments);
 
   const [name, setName] = useState("");
   const [roomNumber, setRoomNumber] = useState("");
-  const [departmentId, setDepartmentId] = useState("");
+  const [departmentId, setDepartmentId] = useState(departments[0]?.id);
   const [teacherId, setTeacherId] = useState(teachers[0]?.id);
 
   const dispatch = useDispatch();
@@ -21,9 +22,13 @@ function AddClassModal({ setShowModal }) {
     return { title: teacher?.name, value: teacher?.id };
   });
 
+  let departmentsOptions = [];
+
+  departmentsOptions = departments.map((department) => {
+    return { title: department?.name, value: department?.id };
+  });
+
   const handleAddClass = () => {
-    console.log("name is ");
-    console.log(name);
     const data = {
       name: name,
       room_number: roomNumber,
@@ -56,12 +61,11 @@ function AddClassModal({ setShowModal }) {
             type="text"
             placeholder="Room number"
           />
-          <input
-            className={styles.input}
+          <FormSelect
             value={departmentId}
-            onChange={(e) => setDepartmentId(e.target.value)}
-            type="text"
-            placeholder="Department Id"
+            setValue={setDepartmentId}
+            title="Department"
+            options={departmentsOptions}
           />
           <FormSelect
             value={teacherId}
