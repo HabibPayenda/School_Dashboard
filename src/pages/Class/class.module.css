@@ -44,11 +44,21 @@
   color: #fafafa;
 }
 
+.btnsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 .btn {
   background-color: #21958f;
   margin-right: 24px;
-  padding: 12px;
-  border-radius: 12px;
+  padding: 12px 24px;
+  font-size: 14px;
+  border-radius: 6px;
+  color: #fafafa;
+  text-align: center;
+  cursor: pointer;
 }
 
 .icon2 {

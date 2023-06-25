@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./class.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getClass, takeAttendance } from "../../store/classesSlice";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import StudentCard from "../../components/studentCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -16,10 +16,12 @@ function ClassDetails() {
   const showClass = useSelector((state) => state.classes.showClass);
   const [isToday, setIsToday] = useState(false);
   const loading = useSelector((state) => state.classes.loading);
+  const [showModalEdit, setShowModalEdit] = useState(false);
 
   const dispatch = useDispatch();
   const location = useLocation();
   const { attendences } = showClass;
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getClass(location?.state?.id));
@@ -37,6 +39,11 @@ function ClassDetails() {
 
   const handleAttendance = () => {
     dispatch(takeAttendance(showClass?.id));
+  };
+
+  const handleDelete = () => {
+    dispatch();
+    navigate("/classes", { replace: true });
   };
 
   const renderStudents = () => {
@@ -83,6 +90,16 @@ function ClassDetails() {
         ) : (
           <p>No students</p>
         )}
+        <div className={styles.classInfo}>
+          <div className={styles.btnsContainer}>
+            <p onClick={() => setShowModalEdit(true)} className={styles.btn}>
+              Edit
+            </p>
+            <p onClick={handleDelete} className={styles.btn}>
+              Delete
+            </p>
+          </div>
+        </div>
       </div>
 
       <div className={styles.studentsContainer}>{renderStudents()}</div>
