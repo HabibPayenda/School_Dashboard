@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./studentDetails.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
@@ -15,6 +15,7 @@ import StudentAttendanceCard from "../../components/StudentAttendanceCard";
 
 function StudentDetails() {
   const [showModal, setShowModal] = useState(false);
+  const [showModalEdit, setShowModalEdit] = useState(false);
   const student = useSelector((state) => state.students.showStudent);
   const records = useSelector((state) => state.students.records);
 
@@ -34,6 +35,7 @@ function StudentDetails() {
 
   const dispatch = useDispatch();
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getStudent(location?.state?.id));
@@ -47,6 +49,11 @@ function StudentDetails() {
     if (records?.length < 1)
       return <h1>No Attendance records for this student</h1>;
     return cards;
+  };
+
+  const handleDelete = () => {
+    dispatch();
+    navigate("/students", { replace: true });
   };
 
   return (
@@ -83,6 +90,16 @@ function StudentDetails() {
             Add Parent
           </button>
         )}
+        <div className={styles.classInfo}>
+          <div className={styles.btnsContainer}>
+            <p onClick={() => setShowModalEdit(true)} className={styles.btn}>
+              Edit
+            </p>
+            <p onClick={handleDelete} className={styles.btn}>
+              Delete
+            </p>
+          </div>
+        </div>
       </div>
 
       <div className={styles.contentContainer}>{renderRecords()}</div>

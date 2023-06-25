@@ -75,15 +75,21 @@
   gap: 12px;
 }
 
+.btnsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 .btn {
-  background-color: #fafafa;
-  color: #21958f;
-  border: #21958f 2px solid;
-  padding: 10px 30px;
-  border-radius: 5px;
-  cursor: pointer;    
-  text-decoration: none;
-  transition: all 0.3s;
+  background-color: #21958f;
+  margin-right: 24px;
+  padding: 12px 24px;
+  font-size: 14px;
+  border-radius: 6px;
+  color: #fafafa;
+  text-align: center;
+  cursor: pointer;
 }
 
 .btn:hover {
