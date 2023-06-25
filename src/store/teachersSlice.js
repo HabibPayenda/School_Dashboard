@@ -56,6 +56,25 @@ export const addTeacher = createAsyncThunk(
   }
 );
 
+export const updateTeacher = createAsyncThunk(
+  "teachers/updateTeacher",
+  // { name, phone, email, password, subject }
+  async (data) => {
+    try {
+      const result = await SchoolApi.patch(`/teachers/${data?.id}`, data, {
+        onUploadProgress: (progress) => {
+          if (progress.loaded / progress.total === 1) {
+          }
+        },
+      });
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
+
 const initialState = {
   teachers: [],
   showTeacher: {},
@@ -86,6 +105,22 @@ export const TeachersSlice = createSlice({
       // Code
       state.teachers = [...state.teachers, action.payload.teacher];
       toast.success("Teacher added successfully.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+
+    builder.addCase(updateTeacher.fulfilled, (state, action) => {
+      // Code
+      state.showTeacher = action.payload.teacher;
+      const teachers = state.teachers.map((teacher) => {
+        if (teacher.id == action.payload.id) {
+          return action.payload.id;
+        }
+
+        return teacher;
+      });
+      state.teachers = teachers;
+      toast.success("Teacher updated successfully.", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
     });
