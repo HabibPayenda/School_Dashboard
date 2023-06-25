@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouseLaptop } from "@fortawesome/free-solid-svg-icons";
 
-import { getTeacher } from "../../store/teachersSlice";
+import { deleteTeacher, getTeacher } from "../../store/teachersSlice";
 import ClassCard from "../../components/classCard/ClassCard";
 import Modal from "../../components/Modal";
 import EditTeacherModal from "../../Modals/EditTeacherModal";
@@ -26,7 +26,7 @@ function TeacherDetails() {
   }, []);
 
   const handleDelete = () => {
-    dispatch();
+    dispatch(deleteTeacher(teacher?.id));
     navigate("/teachers", { replace: true });
   };
 
