@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./teacherDetails.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouseLaptop } from "@fortawesome/free-solid-svg-icons";
 
@@ -12,12 +12,21 @@ function TeacherDetails() {
   const teacher = useSelector((state) => state.teachers.showTeacher);
   console.log(teacher);
 
+  const navigate = useNavigate();
+
+  const [showModal, setShowModal] = useState(false);
+
   const dispatch = useDispatch();
   const location = useLocation();
 
   useEffect(() => {
     dispatch(getTeacher(location?.state?.id));
   }, []);
+
+  const handleDelete = () => {
+    dispatch();
+    navigate("/teachers", { replace: true });
+  };
 
   const renderClasses = () => {
     let cards = teacher?.school_classes?.map((single_class) => {
@@ -44,6 +53,16 @@ function TeacherDetails() {
         </div>
         <div className={styles.classInfo}>
           <p>Number of classes: {teacher?.school_classes?.length}</p>
+        </div>
+        <div className={styles.classInfo}>
+          <div className={styles.btnsContainer}>
+            <p onClick={() => setShowModal(true)} className={styles.btn}>
+              Edit
+            </p>
+            <p onClick={handleDelete} className={styles.btn}>
+              Delete
+            </p>
+          </div>
         </div>
       </div>
 
