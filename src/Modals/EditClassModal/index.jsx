@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./editClassModal.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import FormSelect from "../../components/FormSelect";
+import { updateClass } from "../../store/classesSlice";
 
 function EditClassModal({ setShowModal }) {
   const teachers = useSelector((state) => state.teachers.teachers);
@@ -37,7 +38,7 @@ function EditClassModal({ setShowModal }) {
       id: showClass?.id,
     };
 
-    dispatch();
+    dispatch(updateClass(data));
     setShowModal(false);
   };
 

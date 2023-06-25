@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styles from "./class.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getClass, takeAttendance } from "../../store/classesSlice";
+import {
+  deleteClass,
+  getClass,
+  takeAttendance,
+} from "../../store/classesSlice";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import StudentCard from "../../components/studentCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -44,7 +48,7 @@ function ClassDetails() {
   };
 
   const handleDelete = () => {
-    dispatch();
+    dispatch(deleteClass(showClass?.id));
     navigate("/classes", { replace: true });
   };
 
