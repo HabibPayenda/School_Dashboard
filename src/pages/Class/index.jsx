@@ -11,6 +11,8 @@ import {
   faCalendarPlus,
   faUserPen,
 } from "@fortawesome/free-solid-svg-icons";
+import Modal from "../../components/Modal";
+import EditClassModal from "../../Modals/EditClassModal";
 
 function ClassDetails() {
   const showClass = useSelector((state) => state.classes.showClass);
@@ -58,6 +60,9 @@ function ClassDetails() {
   console.log(showClass);
   return (
     <div className={styles.classView}>
+      <Modal setShowModal={setShowModalEdit} showModal={showModalEdit}>
+        <EditClassModal setShowModal={setShowModalEdit} />
+      </Modal>
       <div className={styles.classInfoCard}>
         <div className={styles.teacherInfo}>
           <div className={styles.teacherImg}>
