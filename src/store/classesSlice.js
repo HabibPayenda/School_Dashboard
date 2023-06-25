@@ -62,6 +62,43 @@ export const addClass = createAsyncThunk(
     }
   }
 );
+
+export const updateClass = createAsyncThunk(
+  "classes/updateClass",
+  async (data) => {
+    try {
+      const result = await SchoolApi.patch(`/classes/${data.id}`, data, {
+        onUploadProgress: (progress) => {
+          if (progress.loaded / progress.total === 1) {
+          }
+        },
+      });
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
+
+export const deleteClass = createAsyncThunk(
+  "classes/updateClass",
+  async (id) => {
+    try {
+      const result = await SchoolApi.delete(`/classes/${id}`, {
+        onUploadProgress: (progress) => {
+          if (progress.loaded / progress.total === 1) {
+          }
+        },
+      });
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
+
 export const takeAttendance = createAsyncThunk(
   "classes/takeAttendance",
   async (id) => {
@@ -146,6 +183,32 @@ export const ClassesSlice = createSlice({
       // Code
       state.classes = [...state.classes, action.payload.single_class];
       toast.success("Class added successfully.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+
+    builder.addCase(updateClass.fulfilled, (state, action) => {
+      // Code
+      state.showClass = action.payload.single_class;
+      const classes = state.classes.map((single_class) => {
+        if ((single_class.id = action.payload.single_class.id)) {
+          return action.payload.single_class;
+        }
+        return single_class;
+      });
+      state.classes = classes;
+      toast.success("Class updated successfully.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+
+    builder.addCase(deleteClass.fulfilled, (state, action) => {
+      // Code
+      state.showClass = {};
+      const classes = state.classes.filter(
+        (single_class) => single_class.id !== action.payload.single_class.id
+      );
+      toast.warn("Class deleted successfully.", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
     });
