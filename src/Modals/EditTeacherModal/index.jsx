@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styles from "./editTeacherModal.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { updateTeacher } from "../../store/teachersSlice";
-import { useNavigate, useNavigation } from "react-router-dom";
 
 function EditTeacherModal({ setShowModal }) {
   const teacher = useSelector((state) => state.teachers.showTeacher);
@@ -14,7 +13,6 @@ function EditTeacherModal({ setShowModal }) {
   const [subject, setSubject] = useState(teacher?.subject);
 
   const dispatch = useDispatch();
-  const navigation = useNavigate();
 
   const handleUpdateTeacher = () => {
     const data = {
