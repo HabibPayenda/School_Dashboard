@@ -148,9 +148,7 @@ export const DepartmentsSlice = createSlice({
 
     builder.addCase(updateDepartment.fulfilled, (state, action) => {
       // Code
-      console.log(action);
       state.showDepartment = action.payload.department;
-
       const departments = state.departments.map((department) => {
         if (department.id == action.payload.department.id) {
           return action.payload.department;
