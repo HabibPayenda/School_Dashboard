@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./editStudent.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import FormSelect from "../../components/FormSelect";
+import { updateStudent } from "../../store/studentsSlice";
 
 function EditStudentModal({ setShowModal }) {
   const student = useSelector((state) => state.students.showStudent);
@@ -13,7 +14,7 @@ function EditStudentModal({ setShowModal }) {
   const [address, setAddress] = useState(student?.address);
   const [grade, setGrade] = useState(student?.grade);
   const [date_of_birth, setDateOfBirth] = useState(student?.date_of_birth);
-  const [classId, setClassId] = useState(student?.class_id);
+  const [classId, setClassId] = useState(student?.school_class_id);
 
   const classes = useSelector((state) => state.classes.classes);
 
@@ -34,10 +35,10 @@ function EditStudentModal({ setShowModal }) {
       grade: grade,
       date_of_birth: date_of_birth,
       school_class_id: classId * 1,
-      id: student?.id,
+      id: student?.id * 1,
     };
 
-    dispatch();
+    dispatch(updateStudent(data));
     setShowModal(false);
   };
 

@@ -63,7 +63,7 @@ export const updateStudent = createAsyncThunk(
   "students/updateStudent",
   async (data) => {
     try {
-      const result = await SchoolApi.patch(`/students${data?.id}`, data, {
+      const result = await SchoolApi.patch(`/students/${data?.id}`, data, {
         onUploadProgress: (progress) => {
           if (progress.loaded / progress.total === 1) {
           }
