@@ -77,8 +77,8 @@ function StudentDetails() {
           <h4>Department Name: {student?.department?.name}</h4>
         </div>
         <div className={styles.classInfo}>
-          <h4>Present: {presentPercentage} %</h4>
-          <h4>Absent: {absentPercentage} %</h4>
+          <h4>Present: {presentPercentage || 0} %</h4>
+          <h4>Absent: {absentPercentage || 0} %</h4>
         </div>
         {student?.parent?.name ? (
           <div className={styles.classInfo}>
