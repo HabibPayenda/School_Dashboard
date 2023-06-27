@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 import {
+  deleteStudent,
   getStudent,
   getStudentAttendanceRecords,
 } from "../../store/studentsSlice";
@@ -53,7 +54,7 @@ function StudentDetails() {
   };
 
   const handleDelete = () => {
-    dispatch();
+    dispatch(deleteStudent(student?.id));
     navigate("/students", { replace: true });
   };
 
