@@ -12,6 +12,7 @@ import {
 import Modal from "../../components/Modal";
 import AddPrentModal from "../../Modals/AddParentModal";
 import StudentAttendanceCard from "../../components/StudentAttendanceCard";
+import EditStudentModal from "../../Modals/EditStudentModal";
 
 function StudentDetails() {
   const [showModal, setShowModal] = useState(false);
@@ -60,6 +61,9 @@ function StudentDetails() {
     <div className={styles.classView}>
       <Modal showModal={showModal} setShowModal={setShowModal}>
         <AddPrentModal setShowModal={setShowModal} />
+      </Modal>
+      <Modal showModal={showModalEdit} setShowModal={setShowModalEdit}>
+        <EditStudentModal setShowModal={setShowModalEdit} />
       </Modal>
       <div className={styles.classInfoCard}>
         <div className={styles.teacherInfo}>

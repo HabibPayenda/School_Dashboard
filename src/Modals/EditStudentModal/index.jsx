@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import styles from "./addStudent.module.css";
+import styles from "./editStudent.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addStudent } from "../../store/studentsSlice";
 import FormSelect from "../../components/FormSelect";
 
 function EditStudentModal({ setShowModal }) {
