@@ -77,6 +77,24 @@ export const updateStudent = createAsyncThunk(
   }
 );
 
+export const deleteStudent = createAsyncThunk(
+  "students/deleteStudent",
+  async (id) => {
+    try {
+      const result = await SchoolApi.delete(`/students/${id}`, {
+        onUploadProgress: (progress) => {
+          if (progress.loaded / progress.total === 1) {
+          }
+        },
+      });
+      return result.data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+);
+
 export const addStudentParent = createAsyncThunk(
   "students/addStudentParent",
   async (data) => {
@@ -154,6 +172,18 @@ export const StudentsSlice = createSlice({
       // Code
       state.students = [...state.students, action.payload.student];
       toast.success("Student added successfully.", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    });
+
+    builder.addCase(deleteStudent.fulfilled, (state, action) => {
+      // Code
+      state.showStudent = {};
+      const students = state.students.filter(
+        (student) => student.id !== action.payload.student.id
+      );
+      state.students = students;
+      toast.warn("Student deleted successfully.", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
     });
