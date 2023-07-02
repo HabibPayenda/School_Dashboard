@@ -136,6 +136,7 @@ export const getStudentAttendanceRecords = createAsyncThunk(
 const initialState = {
   students: [],
   showStudent: {},
+  searchStudents: [],
   records: [],
   loading: "idle",
 };
