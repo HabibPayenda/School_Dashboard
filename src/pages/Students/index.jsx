@@ -37,7 +37,14 @@ function Students() {
           Add Student
         </button>
       </div>
-      <div className={styles.cards}>{renderStudents()}</div>
+      <div className={styles.contentContainer}>
+        <input
+          className={styles.searchInput}
+          type="text"
+          placeholder="Search students"
+        />
+        <div className={styles.cards}>{renderStudents()}</div>
+      </div>
     </div>
   );
 }
