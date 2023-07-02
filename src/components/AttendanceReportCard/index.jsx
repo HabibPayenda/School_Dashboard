@@ -6,9 +6,9 @@ function AttendanceReportCard({ record, name }) {
   const absentPercentage = (record?.absent / record?.total) * 100;
   return (
     <div className={styles.container}>
-      <p>Name: {name}</p>
-      <p>Absent: %{absentPercentage}</p>
-      <p>Present: %{presentPercentage}</p>
+      <p className={styles.name}>Name: {name}</p>
+      <p className={styles.record}>Absent: %{absentPercentage}</p>
+      <p className={styles.record}>Present: %{presentPercentage}</p>
     </div>
   );
 }

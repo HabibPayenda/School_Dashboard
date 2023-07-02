@@ -3,4 +3,15 @@
   align-items: center;
   width: 100%;
   gap: 30px;
+  padding: 12px;
+  background-color: #fafafa;
+  box-shadow: 1px 1px 1px #ddd;
+}
+
+.name {
+  flex: 2;
+}
+
+.record {
+  flex: 1;
 }
