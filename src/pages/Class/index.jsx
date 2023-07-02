@@ -32,6 +32,35 @@ function ClassDetails() {
   useEffect(() => {
     dispatch(getClass(location?.state?.id));
   }, []);
+  let attRecords = [];
+  for (let i = attendences?.length - 1; i >= attendences?.length - 3; i -= 1) {
+    attRecords.push(attendences[i]);
+  }
+
+  console.log("att", attRecords);
+
+  const renderAttendanceBtns = () => {
+    const today = new Date();
+
+    const btns = attRecords.map((record) => {
+      console.log(record, "record");
+      const otherDate = new Date(record?.created_at);
+      if (otherDate.getDate() >= today.getDate()) {
+        return (
+          <Link className={styles.btn} to="/classes/attendance" state={record}>
+            <FontAwesomeIcon className={styles.icon2} icon={faCalendarCheck} />
+          </Link>
+        );
+      } else {
+        return (
+          <Link className={styles.btn} onClick={handleAttendance}>
+            <FontAwesomeIcon className={styles.icon2} icon={faCalendarPlus} />
+          </Link>
+        );
+      }
+    });
+    return btns;
+  };
 
   useEffect(() => {
     const attendanceToday =
@@ -83,31 +112,12 @@ function ClassDetails() {
           <p>Class Name: {showClass?.name}</p>
           <p>Number of students: {showClass?.students?.length}</p>
         </div>
-        {showClass?.students?.length > 0 ? (
-          isToday && showClass?.attendences?.length > 0 ? (
-            <Link className={styles.btn} to="/classes/attendance">
-              <FontAwesomeIcon
-                className={styles.icon2}
-                icon={faCalendarCheck}
-              />
-            </Link>
+        <div className={styles.attBtns}>
+          {showClass?.students?.length > 0 ? (
+            renderAttendanceBtns()
           ) : (
-            <Link className={styles.btn} onClick={handleAttendance}>
-              <FontAwesomeIcon className={styles.icon2} icon={faCalendarPlus} />
-            </Link>
-          )
-        ) : (
-          <p>No students</p>
-        )}
-        <div className={styles.classInfo}>
-          <div className={styles.btnsContainer}>
-            <p onClick={() => setShowModalEdit(true)} className={styles.btn}>
-              Edit
-            </p>
-            <p onClick={handleDelete} className={styles.btn}>
-              Delete
-            </p>
-          </div>
+            <p>No students</p>
+          )}
         </div>
         <div className={styles.classInfo}>
           <Link
@@ -117,6 +127,16 @@ function ClassDetails() {
           >
             Report
           </Link>
+        </div>
+        <div className={styles.classInfo}>
+          <div className={styles.btnsContainer}>
+            <p onClick={() => setShowModalEdit(true)} className={styles.btn}>
+              Edit
+            </p>
+            <p onClick={handleDelete} className={styles.btn}>
+              Delete
+            </p>
+          </div>
         </div>
       </div>
 

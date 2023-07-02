@@ -137,7 +137,6 @@ export const attendanceAction = createAsyncThunk(
           },
         }
       );
-      console.log(result.data);
       return result.data;
     } catch (error) {
       console.log(error);
@@ -222,21 +221,24 @@ export const ClassesSlice = createSlice({
     });
 
     builder.addCase(attendanceAction.fulfilled, (state, action) => {
-      const attendences = state.showClass.attendences;
-      let attendence_records =
-        attendences[attendences.length - 1].attendence_records;
-
-      attendence_records = attendence_records.map((record) => {
-        if (record.id == action.payload.attendance_record.id) {
-          return action.payload.attendance_record;
-        } else {
-          return record;
-        }
-      });
-      console.log(attendence_records);
-      state.showClass.attendences[
-        state.showClass.attendences.length - 1
-      ].attendence_records = attendence_records;
+      state.showClass = action.payload.single_class;
+      // console.log(action.payload);
+      // const allRecords = state.showClass.attendence_records;
+      // console.log("allRecords", allRecords);
+      // const attendence_records = state.showClass.attendence_records?.map(
+      //   (record) => {
+      //     if (record.id == action.payload.attendance_record.id) {
+      //       return action.payload.attendance_record;
+      //     }
+      //     return record;
+      //   }
+      // );
+      // console.log("records", attendence_records);
+      // let single_class = state.showClass;
+      // console.log("class", single_class);
+      // single_class.attendence_records = attendence_records;
+      // state.showClass = single_class;
+      // console.log("Show class", state.showClass);
     });
   },
 });
