@@ -9,12 +9,16 @@ import StudentCard from "../../components/studentCard";
 
 function Students() {
   const [showModal, setShowModal] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllStudents());
   }, []);
 
+  useEffect(() => {
+    dispatch();
+  }, [searchTerm]);
   const students = useSelector((state) => state.students.students);
 
   const renderStudents = () => {
@@ -42,6 +46,8 @@ function Students() {
           className={styles.searchInput}
           type="text"
           placeholder="Search students"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
         <div className={styles.cards}>{renderStudents()}</div>
       </div>
