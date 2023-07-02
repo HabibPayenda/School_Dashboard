@@ -110,7 +110,11 @@ function ClassDetails() {
           </div>
         </div>
         <div className={styles.classInfo}>
-          <Link to="/classes/report" className={styles.btn}>
+          <Link
+            to="/classes/report"
+            state={showClass?.attendence_records}
+            className={styles.btn}
+          >
             Report
           </Link>
         </div>
