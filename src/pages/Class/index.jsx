@@ -109,6 +109,11 @@ function ClassDetails() {
             </p>
           </div>
         </div>
+        <div className={styles.classInfo}>
+          <Link to="/classes/report" className={styles.btn}>
+            Report
+          </Link>
+        </div>
       </div>
 
       <div className={styles.studentsContainer}>{renderStudents()}</div>
