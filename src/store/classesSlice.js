@@ -149,6 +149,7 @@ const initialState = {
   classes: [],
   showClass: {},
   loading: "idle",
+  error: "",
 };
 
 export const ClassesSlice = createSlice({
@@ -180,10 +181,16 @@ export const ClassesSlice = createSlice({
 
     builder.addCase(addClass.fulfilled, (state, action) => {
       // Code
-      state.classes = [...state.classes, action.payload.single_class];
-      toast.success("Class added successfully.", {
-        position: toast.POSITION.BOTTOM_RIGHT,
-      });
+      if (action.payload.status == "success") {
+        state.classes = [...state.classes, action.payload.single_class];
+        toast.success("Class added successfully.", {
+          position: toast.POSITION.BOTTOM_RIGHT,
+        });
+      } else {
+        toast.warn("Class name is taken.", {
+          position: toast.POSITION.BOTTOM_RIGHT,
+        });
+      }
     });
 
     builder.addCase(updateClass.fulfilled, (state, action) => {
