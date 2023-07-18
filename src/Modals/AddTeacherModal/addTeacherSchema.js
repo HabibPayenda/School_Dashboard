@@ -1,7 +1,9 @@
 import * as Yup from "yup";
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string().required("Name is required"),
+  name: Yup.string()
+    .matches(/^[a-zA-Z\s]*$/, "Name must not contain numbers or symbols")
+    .required("Name is required"),
   email: Yup.string()
     .test("is-valid-email", "Invalid email address", function (value) {
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);

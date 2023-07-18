@@ -2,7 +2,9 @@ import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import * as Yup from "yup";
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string().required("Name is required"),
+  name: Yup.string()
+    .matches(/^[a-zA-Z\s]*$/, "Name must not contain numbers or symbols")
+    .required("Name is required"),
   phone: Yup.number().required("Phone Number is required"),
   email: Yup.string()
     .test("is-valid-email", "Invalid email address", function (value) {
