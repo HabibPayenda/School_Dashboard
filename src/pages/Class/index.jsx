@@ -30,7 +30,9 @@ function ClassDetails() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    dispatch(getClass(location?.state?.id));
+    if (location?.state?.id) {
+      dispatch(getClass(location?.state?.id));
+    }
   }, []);
   let attRecords = [];
   for (let i = attendences?.length - 1; i >= attendences?.length - 3; i -= 1) {
