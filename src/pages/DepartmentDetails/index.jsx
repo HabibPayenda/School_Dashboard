@@ -19,6 +19,8 @@ function DepartmentDetails() {
 
   const [showModal, setShowModal] = useState(false);
 
+  const userType = JSON.parse(localStorage.getItem("userType"));
+
   useEffect(() => {
     dispatch(getDepartment(location?.state?.id));
   }, []);
@@ -35,6 +37,26 @@ function DepartmentDetails() {
     if (department?.school_classes?.length < 1)
       return <h1>No classes in this department</h1>;
     return cards;
+  };
+
+  const renderButtons = () => {
+    if (userType == "admin") {
+      console.log("is admin yes");
+      return (
+        <div className={styles.classInfo}>
+          <div className={styles.btnsContainer}>
+            <p onClick={() => setShowModal(true)} className={styles.btn}>
+              Edit
+            </p>
+            <p onClick={handleDelete} className={styles.btn}>
+              Delete
+            </p>
+          </div>
+        </div>
+      );
+    } else {
+      return null;
+    }
   };
 
   return (
@@ -56,16 +78,7 @@ function DepartmentDetails() {
         <div className={styles.classInfo}>
           <p>Number of classes: {department?.school_classes?.length}</p>
         </div>
-        <div className={styles.classInfo}>
-          <div className={styles.btnsContainer}>
-            <p onClick={() => setShowModal(true)} className={styles.btn}>
-              Edit
-            </p>
-            <p onClick={handleDelete} className={styles.btn}>
-              Delete
-            </p>
-          </div>
-        </div>
+        {renderButtons()}
       </div>
 
       <div className={styles.studentsContainer}>{renderClasses()}</div>

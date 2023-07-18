@@ -32,6 +32,28 @@ function StudentDetails() {
     }
   });
 
+  const userType = JSON.parse(localStorage.getItem("userType"));
+
+  const renderButtons = () => {
+    if (userType == "admin") {
+      console.log("is admin yes");
+      return (
+        <div className={styles.classInfo}>
+          <div className={styles.btnsContainer}>
+            <p onClick={() => setShowModalEdit(true)} className={styles.btn}>
+              Edit
+            </p>
+            <p onClick={handleDelete} className={styles.btn}>
+              Delete
+            </p>
+          </div>
+        </div>
+      );
+    } else {
+      return null;
+    }
+  };
+
   const presentPercentage = ((present / records?.length) * 100).toFixed(2);
   const absentPercentage = ((absent / records?.length) * 100).toFixed(2);
 
@@ -95,16 +117,7 @@ function StudentDetails() {
             Add Parent
           </button>
         )}
-        <div className={styles.classInfo}>
-          <div className={styles.btnsContainer}>
-            <p onClick={() => setShowModalEdit(true)} className={styles.btn}>
-              Edit
-            </p>
-            <p onClick={handleDelete} className={styles.btn}>
-              Delete
-            </p>
-          </div>
-        </div>
+        {renderButtons()}
       </div>
 
       <div className={styles.contentContainer}>{renderRecords()}</div>

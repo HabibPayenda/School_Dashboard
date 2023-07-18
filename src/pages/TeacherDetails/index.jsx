@@ -21,6 +21,28 @@ function TeacherDetails() {
   const dispatch = useDispatch();
   const location = useLocation();
 
+  const userType = JSON.parse(localStorage.getItem("userType"));
+
+  const renderButtons = () => {
+    if (userType == "admin") {
+      console.log("is admin yes");
+      return (
+        <div className={styles.classInfo}>
+          <div className={styles.btnsContainer}>
+            <p onClick={() => setShowModal(true)} className={styles.btn}>
+              Edit
+            </p>
+            <p onClick={handleDelete} className={styles.btn}>
+              Delete
+            </p>
+          </div>
+        </div>
+      );
+    } else {
+      return null;
+    }
+  };
+
   useEffect(() => {
     dispatch(getTeacher(location?.state?.id));
   }, []);
@@ -59,16 +81,7 @@ function TeacherDetails() {
         <div className={styles.classInfo}>
           <p>Number of classes: {teacher?.school_classes?.length}</p>
         </div>
-        <div className={styles.classInfo}>
-          <div className={styles.btnsContainer}>
-            <p onClick={() => setShowModal(true)} className={styles.btn}>
-              Edit
-            </p>
-            <p onClick={handleDelete} className={styles.btn}>
-              Delete
-            </p>
-          </div>
-        </div>
+        {renderButtons()}
       </div>
 
       <div className={styles.studentsContainer}>{renderClasses()}</div>

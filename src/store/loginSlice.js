@@ -90,7 +90,7 @@ export const logOut = createAsyncThunk("login/logOut", async () => {
 
 const initialState = {
   user: [],
-  userType: {},
+  userType: "",
   loading: "idle",
   error: "",
 };

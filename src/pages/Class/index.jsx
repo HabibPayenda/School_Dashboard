@@ -39,6 +39,8 @@ function ClassDetails() {
     attRecords.push(attendences[i]);
   }
 
+  attRecords = attRecords.reverse();
+
   console.log("att", attRecords);
 
   const renderAttendanceBtns = () => {
