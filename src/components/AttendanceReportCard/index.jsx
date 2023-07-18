@@ -2,8 +2,10 @@ import React from "react";
 import styles from "./attendanceReportCard.module.css";
 
 function AttendanceReportCard({ record, name }) {
-  const presentPercentage = (record?.present / record?.total) * 100;
-  const absentPercentage = (record?.absent / record?.total) * 100;
+  const presentPercentage = ((record?.present / record?.total) * 100).toFixed(
+    2
+  );
+  const absentPercentage = ((record?.absent / record?.total) * 100).toFixed(2);
   return (
     <div className={styles.container}>
       <p className={styles.name}>Name: {name}</p>

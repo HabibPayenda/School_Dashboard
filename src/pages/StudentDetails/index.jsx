@@ -32,8 +32,8 @@ function StudentDetails() {
     }
   });
 
-  const presentPercentage = (present / records?.length) * 100;
-  const absentPercentage = (absent / records?.length) * 100;
+  const presentPercentage = ((present / records?.length) * 100).toFixed(2);
+  const absentPercentage = ((absent / records?.length) * 100).toFixed(2);
 
   const dispatch = useDispatch();
   const location = useLocation();
